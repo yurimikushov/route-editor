@@ -5,6 +5,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-ci": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "generate-component": "ts-node ./scripts/generate-component.ts"
