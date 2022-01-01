@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display error message when map creation is failed 1`] = `
+<div>
+  <div
+    className="w-full h-full flex justify-center items-center"
+  >
+    <span
+      className="text-xl text-center"
+    >
+      Failed to load the map
+      <br />
+      Try refresh the page
+    </span>
+  </div>
+</div>
+`;
+
+exports[`should display map and passed children when map is created 1`] = `
+<div>
+  <div
+    className="w-full h-full flex justify-center items-center"
+  >
+    <div>
+      Some children
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should display map when map is created 1`] = `
+<div>
+  <div
+    className="w-full h-full flex justify-center items-center"
+  />
+</div>
+`;
+
+exports[`should display spinner during map creation 1`] = `
+<div>
+  <div
+    className="w-full h-full flex justify-center items-center"
+  >
+    <svg
+      className="w-10 h-10 text-indigo-500 animate-spin"
+    >
+      spinner.svg
+    </svg>
+  </div>
+</div>
+`;
