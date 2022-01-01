@@ -1,7 +1,15 @@
 module.exports = {
+  mode: 'jit',
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      minWidth: {
+        5: '1.25rem',
+      },
+      minHeight: {
+        5: '1.25rem',
+      },
+    },
   },
   plugins: [],
 }
