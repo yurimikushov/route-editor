@@ -54,7 +54,9 @@ const useCreateMap = (
 
     fetchScript(
       `https://api-maps.yandex.ru/2.1/?lang=${local}&onload=${loadCallbackName}&onerror=${errorCallbackName}`
-    ).catch(setError)
+    )
+      .catch(setError)
+      .finally(() => setIsCreating(false))
   }, [])
 
   return {
