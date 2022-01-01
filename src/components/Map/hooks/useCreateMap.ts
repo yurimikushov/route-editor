@@ -37,6 +37,8 @@ const useCreateMap = (
 
       // @ts-expect-error bad typing
       delete window[loadCallbackName]
+      // @ts-expect-error bad typing
+      delete window[errorCallbackName]
     }
 
     // @ts-expect-error bad typing
@@ -44,6 +46,8 @@ const useCreateMap = (
       setIsCreating(false)
       setError(error)
 
+      // @ts-expect-error bad typing
+      delete window[loadCallbackName]
       // @ts-expect-error bad typing
       delete window[errorCallbackName]
     }
