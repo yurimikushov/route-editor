@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render spinner 1`] = `
+<svg
+  className="text-indigo-500 animate-spin"
+>
+  spinner.svg
+</svg>
+`;
