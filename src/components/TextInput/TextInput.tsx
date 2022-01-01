@@ -49,6 +49,7 @@ const TextInput: FC<TextInputProps> = ({
             'focus:outline-none rounded-md focus-visible:ring-2 focus-visible:ring-indigo-500'
           )}
           type='reset'
+          data-testid='clear-text-input'
           onClick={handleClear}
         >
           <ClearIcon />
