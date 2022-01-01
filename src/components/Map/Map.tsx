@@ -22,7 +22,7 @@ const Map: FC<MapProps> = ({
   return (
     <MapContext.Provider value={map}>
       <div className={className}>
-        <div ref={containerRef} className={'relative w-full h-full'}>
+        <div ref={containerRef} className={'w-full h-full'}>
           {isNull(map) ? null : children}
         </div>
       </div>
