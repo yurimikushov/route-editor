@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render both + and - controls 1`] = `
+<div
+  className="inline-flex flex-col bg-white rounded-md shadow-lg hover:shadow-xl"
+>
+  <button
+    className="px-3 py-2.5 rounded-md text-2xl text-gray-500 leading-none hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <button
+    className="px-3 py-2.5 rounded-md text-2xl text-gray-500 leading-none hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+    onClick={[Function]}
+  >
+    -
+  </button>
+</div>
+`;
