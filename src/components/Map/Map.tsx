@@ -1,9 +1,9 @@
 import { FC, useRef } from 'react'
 import isNull from 'lodash/isNull'
+import Spinner from 'components/Spinner'
 import useCreateMap from './hooks/useCreateMap'
 import MapContext from './MapContext'
 import MapProps from './Map.props'
-import Spinner from 'components/Spinner'
 
 const MOSCOW = [55.751574, 37.573856]
 
