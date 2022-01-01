@@ -6,9 +6,9 @@ const createComponent = (name: string) =>
 import cn from 'classnames'
 import ${name}Props from './${name}.props'
 
-const ${name}: FC<${name}Props> = () => {
+const ${name}: FC<${name}Props> = ({ className }) => {
   return (
-    <div className={cn('')}>
+    <div className={cn(className, '')}>
       It was automatically generated
     </div>
   )
