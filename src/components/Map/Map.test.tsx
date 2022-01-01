@@ -5,6 +5,11 @@ import useCreateMap from './hooks/useCreateMap'
 import MapContext from './MapContext'
 import Map from './Map'
 
+// eslint-disable-next-line react/display-name
+jest.mock('components/Spinner', () => (props: { className?: string }) => (
+  <span {...props}>Spinner</span>
+))
+
 jest.mock('./hooks/useCreateMap')
 
 const runMockUseCreateMap = (result: ReturnType<typeof useCreateMap>) => {

@@ -41,11 +41,11 @@ exports[`should display spinner during map creation 1`] = `
   <div
     className="w-full h-full flex justify-center items-center"
   >
-    <svg
-      className="w-10 h-10 text-indigo-500 animate-spin"
+    <span
+      className="w-10 h-10"
     >
-      spinner.svg
-    </svg>
+      Spinner
+    </span>
   </div>
 </div>
 `;
