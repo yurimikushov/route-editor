@@ -4,8 +4,6 @@ An implementation of [this task](https://dl.funbox.ru/qt-js.pdf).
 
 ## Dev
 
-> Should set environment variables to correctly app usage, see `.env.example`
-
 Clones this repository, if you didn't it
 
 ```
