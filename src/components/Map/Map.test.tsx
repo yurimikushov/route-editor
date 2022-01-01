@@ -1,6 +1,8 @@
+import { useContext } from 'react'
 import renderer from 'react-test-renderer'
 import { Map as YMap } from 'yandex-maps'
 import useCreateMap from './hooks/useCreateMap'
+import MapContext from './MapContext'
 import Map from './Map'
 
 jest.mock('./hooks/useCreateMap')
@@ -47,6 +49,31 @@ it('should display map and passed children when map is created', () => {
     )
     .toJSON()
   expect(tree).toMatchSnapshot()
+})
+
+it('should provide map to children component by useContext', () => {
+  const map = {} as YMap
+
+  runMockUseCreateMap({
+    isCreating: false,
+    map,
+    error: null,
+  })
+
+  let result: YMap | null = null
+
+  const ChildComponent = () => {
+    result = useContext(MapContext)
+    return null
+  }
+
+  renderer.create(
+    <Map>
+      <ChildComponent />
+    </Map>
+  )
+
+  expect(result).toBe(map)
 })
 
 it('should display error message when map creation is failed', () => {
