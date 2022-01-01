@@ -31,9 +31,9 @@ const Map: FC<MapProps> = ({
           {!isNull(map) && children}
           {!isNull(error) && (
             <span className='text-xl text-center'>
-              Failed to load the map
+              Не удалось загрузить карту
               <br />
-              Try refresh the page
+              Попробуйте обновить страницу
             </span>
           )}
         </div>
