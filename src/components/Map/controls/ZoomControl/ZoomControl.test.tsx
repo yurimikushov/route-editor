@@ -1,13 +1,13 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import renderer from 'react-test-renderer'
-import { Map as YMap } from 'yandex-maps'
+import ymaps from 'yandex-maps'
 import MapContext from '../../MapContext'
 import ZoomControl from './ZoomControl'
 
 it('should render both + and - controls', () => {
   const tree = renderer
     .create(
-      <MapContext.Provider value={{} as YMap}>
+      <MapContext.Provider value={{} as ymaps.Map}>
         <ZoomControl />
       </MapContext.Provider>
     )
@@ -29,7 +29,7 @@ it('should increase zoom when + is clicked', () => {
       currentZoom = zoom
       return Promise.resolve()
     }),
-  } as unknown as YMap
+  } as unknown as ymaps.Map
 
   render(
     <MapContext.Provider value={mockMap}>
@@ -61,7 +61,7 @@ it('should decrease zoom when - is clicked', () => {
       currentZoom = zoom
       return Promise.resolve()
     }),
-  } as unknown as YMap
+  } as unknown as ymaps.Map
 
   render(
     <MapContext.Provider value={mockMap}>

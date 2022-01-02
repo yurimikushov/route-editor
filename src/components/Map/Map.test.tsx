@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import renderer from 'react-test-renderer'
-import { Map as YMap } from 'yandex-maps'
+import ymaps from 'yandex-maps'
 import useCreateMap from './hooks/useCreateMap'
 import MapContext from './MapContext'
 import Map from './Map'
@@ -31,7 +31,7 @@ it('should display spinner during map creation', () => {
 it('should display map when map is created', () => {
   runMockUseCreateMap({
     isCreating: false,
-    map: {} as YMap,
+    map: {} as ymaps.Map,
     error: null,
   })
 
@@ -42,7 +42,7 @@ it('should display map when map is created', () => {
 it('should display map and passed children when map is created', () => {
   runMockUseCreateMap({
     isCreating: false,
-    map: {} as YMap,
+    map: {} as ymaps.Map,
     error: null,
   })
 
@@ -57,7 +57,7 @@ it('should display map and passed children when map is created', () => {
 })
 
 it('should provide map to children component by useContext', () => {
-  const map = {} as YMap
+  const map = {} as ymaps.Map
 
   runMockUseCreateMap({
     isCreating: false,
@@ -65,7 +65,7 @@ it('should provide map to children component by useContext', () => {
     error: null,
   })
 
-  let result: YMap | null = null
+  let result: ymaps.Map | null = null
 
   const ChildComponent = () => {
     result = useContext(MapContext)
