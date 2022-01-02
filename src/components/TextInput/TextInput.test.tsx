@@ -78,3 +78,18 @@ it('should call onChange with empty value when clear btn is clicked', () => {
   expect(currentValue).toBe('')
   expect(handleChange).toHaveBeenCalledTimes(1)
 })
+
+it('should focus input when clear btn is clicked', () => {
+  render(
+    <TextInput
+      value='qwerty'
+      placeholder='Type here'
+      hasClear
+      onChange={noop}
+    />
+  )
+
+  fireEvent.click(screen.getByTestId('clear-text-input'))
+
+  expect(document.activeElement).toBe(screen.getByDisplayValue('qwerty'))
+})

@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent, FC, useRef } from 'react'
 import cn from 'classnames'
 import isEmpty from 'lodash/isEmpty'
 import { ReactComponent as ClearIcon } from 'icons/clear.svg'
@@ -12,11 +12,14 @@ const TextInput: FC<TextInputProps> = ({
   onChange,
   ...props
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value)
   }
 
   const handleClear = () => {
+    inputRef.current?.focus()
     onChange('')
   }
 
@@ -34,6 +37,7 @@ const TextInput: FC<TextInputProps> = ({
     >
       <input
         {...props}
+        ref={inputRef}
         type={type}
         className={cn(className, 'focus:outline-none', {
           'w-[calc(100%-theme(space.5))]': shouldDisplayClear,
