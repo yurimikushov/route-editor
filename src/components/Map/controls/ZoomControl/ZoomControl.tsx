@@ -1,16 +1,11 @@
-import { FC, useContext } from 'react'
+import { FC } from 'react'
 import cn from 'classnames'
-import isNull from 'lodash/isNull'
-import MapContext from '../../MapContext'
+import { useMap } from 'components/Map'
 import Control from './Control'
 import ZoomControlProps from './ZoomControl.props'
 
 const ZoomControl: FC<ZoomControlProps> = ({ className }) => {
-  const map = useContext(MapContext)
-
-  if (isNull(map)) {
-    throw new Error('[Map] Map should be created before it usage')
-  }
+  const map = useMap()
 
   const handleIncreaseZoom = () => {
     map.setZoom(map.getZoom() + 1, {

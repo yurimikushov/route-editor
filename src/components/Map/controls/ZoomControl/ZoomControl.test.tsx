@@ -17,9 +17,7 @@ it('should render both + and - controls', () => {
 })
 
 it(`should throw error when map isn't provided`, () => {
-  expect(() => render(<ZoomControl />)).toThrow(
-    new Error('[Map] Map should be created before it usage')
-  )
+  expect(() => render(<ZoomControl />)).toThrowError()
 })
 
 it('should increase zoom when + is clicked', () => {
