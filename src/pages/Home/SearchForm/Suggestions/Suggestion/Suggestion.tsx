@@ -19,7 +19,7 @@ const Suggestion: FC<SuggestionProps> = ({
         'flex flex-col',
         !isHighlighted ? 'bg-white' : 'bg-gray-50',
         'cursor-pointer',
-        'hover:bg-gray-50'
+        'hover:bg-gray-100'
       )}
       onMouseDown={onChoose}
     >

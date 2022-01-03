@@ -54,7 +54,13 @@ const Suggestions: FC<SuggestionsProps> = ({
   )
 
   return (
-    <ul className={cn(className, 'py-1 w-full rounded-md shadow-lg')}>
+    <ul
+      className={cn(
+        className,
+        'py-1 w-full rounded-md',
+        'border border-gray-200 shadow-lg'
+      )}
+    >
       {map(suggestions, (suggestion, i) => (
         <Suggestion
           key={`${suggestion.point.lat}::${suggestion.point.lon}`}
