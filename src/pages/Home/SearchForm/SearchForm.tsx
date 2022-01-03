@@ -17,6 +17,10 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
     clear: clearSuggestions,
   } = useSuggestions()
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+  }
+
   const debouncedLoadSuggestions = useCallback(
     debounce(loadSuggestions, 100),
     []
@@ -33,7 +37,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
   }
 
   return (
-    <form className={cn(className, 'relative w-80')}>
+    <form className={cn(className, 'relative w-80')} onSubmit={handleSubmit}>
       <TextInput
         className='w-full'
         type='search'
