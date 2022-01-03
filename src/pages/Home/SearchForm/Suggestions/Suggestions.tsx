@@ -1,7 +1,8 @@
 import { FC } from 'react'
 import cn from 'classnames'
-import SuggestionsProps from './Suggestions.props'
 import map from 'lodash/map'
+import Suggestion from './Suggestion'
+import SuggestionsProps from './Suggestions.props'
 
 const Suggestions: FC<SuggestionsProps> = ({
   className,
@@ -9,14 +10,13 @@ const Suggestions: FC<SuggestionsProps> = ({
   onSelect,
 }) => {
   return (
-    <ul className={cn(className, 'border-2 border-black')}>
+    <ul className={cn(className, 'py-1 rounded-md shadow-lg')}>
       {map(suggestions, (suggestion) => (
-        <li
+        <Suggestion
           key={`${suggestion.point.lat}::${suggestion.point.lon}`}
-          onClick={() => onSelect(suggestion)}
-        >
-          {suggestion.name}
-        </li>
+          suggestion={suggestion}
+          onSelect={() => onSelect(suggestion)}
+        />
       ))}
     </ul>
   )

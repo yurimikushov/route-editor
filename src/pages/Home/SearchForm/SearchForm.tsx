@@ -44,7 +44,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
       />
       {!isEmpty(suggestions) && (
         <Suggestions
-          className='absolute top-16 left-0'
+          className='absolute top-12 left-0'
           suggestions={suggestions}
           onSelect={handleAddPoint}
         />
