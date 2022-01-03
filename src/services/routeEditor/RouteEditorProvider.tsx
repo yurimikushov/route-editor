@@ -13,20 +13,56 @@ const RouteEditorProvider: FC = ({ children }) => {
   }
 
   const handleChangePoint = async (address: Address, newPoint: Point) => {
-    const newAddress = await geocodeByCoords(newPoint)
-
     setRoute((route) => {
       return map(route, (currentAddress) => {
         if (
           currentAddress.point.lat === address.point.lat &&
           currentAddress.point.lon === address.point.lon
         ) {
-          return newAddress
+          return {
+            name: 'Адрес обновляется...',
+            description: '',
+            point: newPoint,
+          }
         }
 
         return currentAddress
       })
     })
+
+    try {
+      const newAddress = await geocodeByCoords(newPoint)
+
+      setRoute((route) => {
+        return map(route, (currentAddress) => {
+          if (
+            currentAddress.point.lat === newPoint.lat &&
+            currentAddress.point.lon === newPoint.lon
+          ) {
+            return newAddress
+          }
+
+          return currentAddress
+        })
+      })
+    } catch {
+      setRoute((route) => {
+        return map(route, (currentAddress) => {
+          if (
+            currentAddress.point.lat === newPoint.lat &&
+            currentAddress.point.lon === newPoint.lon
+          ) {
+            return {
+              name: 'Не удалось обновить адрес',
+              description: '',
+              point: newPoint,
+            }
+          }
+
+          return currentAddress
+        })
+      })
+    }
   }
 
   const handleDeletePoint = (address: Address) => {

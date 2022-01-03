@@ -1,12 +1,26 @@
-import { FC } from 'react'
+import { FC, useMemo, useState } from 'react'
 import cn from 'classnames'
 import map from 'lodash/map'
-import { useRouteEditor } from 'services/routeEditor'
-import NativeMap, { Placemark, ZoomControl } from 'components/Map'
+import { Address, Point, useRouteEditor } from 'services/routeEditor'
+import NativeMap, { Placemark, Polyline, ZoomControl } from 'components/Map'
 import MapProps from './Map.props'
 
 const Map: FC<MapProps> = ({ className }) => {
   const { route, changePoint } = useRouteEditor()
+  const [isPointDragging, setIsPointDragging] = useState(false)
+
+  const mapPoints = useMemo(() => {
+    return map(route, ({ point }) => point)
+  }, [route])
+
+  const handleDragPointStart = () => {
+    setIsPointDragging(true)
+  }
+
+  const handleDragPointEnd = (address: Address, point: Point) => {
+    setIsPointDragging(false)
+    changePoint(address, point)
+  }
 
   return (
     <NativeMap className={cn(className, 'relative w-full h-screen bg-gray-50')}>
@@ -18,9 +32,11 @@ const Map: FC<MapProps> = ({ className }) => {
           preset='islands#blueCircleIcon'
           balloonContent={address.name}
           draggable
-          onDragEnd={(point) => changePoint(address, point)}
+          onDragStart={handleDragPointStart}
+          onDragEnd={(point) => handleDragPointEnd(address, point)}
         />
       ))}
+      {!isPointDragging && <Polyline points={mapPoints} />}
     </NativeMap>
   )
 }
