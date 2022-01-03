@@ -10,6 +10,7 @@ const Placemark: FC<PlacemarkProps> = ({
   preset,
   balloonContent,
   draggable,
+  onDragStart,
   onDragEnd,
 }) => {
   const map = useMap()
@@ -63,6 +64,22 @@ const Placemark: FC<PlacemarkProps> = ({
 
     placemarkRef.current.options.set('draggable', String(draggable))
   }, [draggable])
+
+  useLayoutEffect(() => {
+    if (isNull(placemarkRef.current) || isNil(onDragStart)) {
+      return
+    }
+
+    placemarkRef.current.events.add('dragstart', onDragStart)
+
+    return () => {
+      if (isNull(placemarkRef.current)) {
+        return
+      }
+
+      placemarkRef.current.events.remove('dragstart', onDragStart)
+    }
+  }, [onDragStart])
 
   useLayoutEffect(() => {
     if (isNull(placemarkRef.current) || isNil(onDragEnd)) {
