@@ -6,11 +6,11 @@ import RouteEditorContext from './RouteEditorContext'
 const RouteEditorProvider: FC = ({ children }) => {
   const [route, setRoute] = useState<Array<Address>>([])
 
-  const handleAddRoute = (address: Address) => {
+  const handleAddPoint = (address: Address) => {
     setRoute((route) => [...route, address])
   }
 
-  const handleDeleteRoute = (address: Address) => {
+  const handleDeletePoint = (address: Address) => {
     setRoute((route) => {
       return filter(route, ({ point }) => {
         return (
@@ -24,8 +24,8 @@ const RouteEditorProvider: FC = ({ children }) => {
     <RouteEditorContext.Provider
       value={{
         route,
-        addRoute: handleAddRoute,
-        deleteRoute: handleDeleteRoute,
+        addPoint: handleAddPoint,
+        deletePoint: handleDeletePoint,
       }}
     >
       {children}

@@ -12,7 +12,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
   const [address, setAddress] = useState('')
   const [shouldDisplaySuggestions, setShouldDisplaySuggestions] =
     useState(false)
-  const { addRoute: handleAddPoint } = useRouteEditor()
+  const { addPoint: handleAddPoint } = useRouteEditor()
   const {
     suggestions,
     load: loadSuggestions,

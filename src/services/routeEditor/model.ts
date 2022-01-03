@@ -1,7 +1,7 @@
 type RouteEditor = {
   route: Array<Address>
-  addRoute: (address: Address) => void
-  deleteRoute: (address: Address) => void
+  addPoint: (address: Address) => void
+  deletePoint: (address: Address) => void
 }
 
 type Address = {
