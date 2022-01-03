@@ -3,6 +3,13 @@ import renderer from 'react-test-renderer'
 import noop from 'lodash/noop'
 import TextInput from './TextInput'
 
+// eslint-disable-next-line react/display-name
+jest.mock('components/ClearButton', () => (props: { className?: string }) => (
+  <button {...props} data-testid='clear-text-input'>
+    Clear
+  </button>
+))
+
 it('should render text input', () => {
   const tree = renderer.create(<TextInput value='' onChange={noop} />).toJSON()
   expect(tree).toMatchSnapshot()

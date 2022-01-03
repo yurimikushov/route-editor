@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render clear button 1`] = `
+<button
+  className="w-5 h-5 min-w-5 min-h-5 rounded-md text-gray-500 hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+  onClick={[Function]}
+  type="reset"
+>
+  <svg>
+    clear.svg
+  </svg>
+</button>
+`;
