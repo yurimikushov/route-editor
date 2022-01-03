@@ -57,7 +57,8 @@ const Suggestions: FC<SuggestionsProps> = ({
     <ul
       className={cn(
         className,
-        'py-1 w-full rounded-md',
+        'py-1 w-full',
+        'bg-white rounded-md',
         'border border-gray-200 shadow-lg'
       )}
     >
