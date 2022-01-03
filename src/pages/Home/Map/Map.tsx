@@ -36,7 +36,9 @@ const Map: FC<MapProps> = ({ className }) => {
           onDragEnd={(point) => handleDragPointEnd(address, point)}
         />
       ))}
-      {!isPointDragging && <Polyline points={mapPoints} />}
+      {!isPointDragging && (
+        <Polyline points={mapPoints} strokeWidth={5} strokeColor='#1e98fe' />
+      )}
     </NativeMap>
   )
 }
