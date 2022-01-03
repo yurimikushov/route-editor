@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import cn from 'classnames'
 import map from 'lodash/map'
+import isEmpty from 'lodash/isEmpty'
 import { useRouteEditor } from 'services/routeEditor'
 import Point from './Point'
 import RouteProps from './Route.props'
@@ -17,6 +18,17 @@ const Route: FC<RouteProps> = ({ className }) => {
           onDelete={() => deletePoint(address)}
         />
       ))}
+      {isEmpty(route) && (
+        <div
+          className={cn(
+            'w-full h-24 p-3',
+            'flex justify-center items-center',
+            'text-sm text-gray-500'
+          )}
+        >
+          Маршрут пока пустой
+        </div>
+      )}
     </ul>
   )
 }

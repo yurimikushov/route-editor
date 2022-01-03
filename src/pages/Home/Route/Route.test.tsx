@@ -44,7 +44,7 @@ it(`should render points when route isn't empty`, () => {
   expect(tree).toMatchSnapshot()
 })
 
-it('should render empty container when route is empty', () => {
+it('should render placeholder when route is empty', () => {
   runMockUseRouteEditor({
     route: [],
     addPoint: noop,

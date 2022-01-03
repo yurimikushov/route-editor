@@ -6,6 +6,18 @@ exports[`should render empty container when route is empty 1`] = `
 />
 `;
 
+exports[`should render placeholder when route is empty 1`] = `
+<ul
+  className="py-2"
+>
+  <div
+    className="w-full h-24 p-3 flex justify-center items-center text-sm text-gray-500"
+  >
+    Маршрут пока пустой
+  </div>
+</ul>
+`;
+
 exports[`should render points when route isn't empty 1`] = `
 <ul
   className="py-2"
