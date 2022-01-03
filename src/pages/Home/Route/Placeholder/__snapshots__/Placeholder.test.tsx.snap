@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render placeholder 1`] = `
+<div
+  className="empty-placeholder w-full h-24 p-3 flex justify-center items-center text-sm text-gray-500"
+>
+  Маршрут пока пустой
+</div>
+`;
