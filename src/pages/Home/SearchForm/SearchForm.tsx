@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from 'react'
+import { FC, FormEvent, useCallback, useState } from 'react'
 import cn from 'classnames'
 import debounce from 'lodash/debounce'
 import isEmpty from 'lodash/isEmpty'

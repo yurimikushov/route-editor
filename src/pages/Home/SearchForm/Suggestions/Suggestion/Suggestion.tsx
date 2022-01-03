@@ -4,6 +4,7 @@ import SuggestionProps from './Suggestion.props'
 
 const Suggestion: FC<SuggestionProps> = ({
   className,
+  isHighlighted,
   suggestion,
   onSelect,
 }) => {
@@ -16,7 +17,8 @@ const Suggestion: FC<SuggestionProps> = ({
         className,
         'px-2 py-1',
         'flex flex-col',
-        'bg-white cursor-pointer',
+        !isHighlighted ? 'bg-white' : 'bg-gray-50',
+        'cursor-pointer',
         'hover:bg-gray-50'
       )}
       onClick={onSelect}
