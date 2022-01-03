@@ -1,57 +1,16 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import cn from 'classnames'
-import size from 'lodash/size'
 import map from 'lodash/map'
-import useKeyDown from 'hooks/useKeyDown'
 import Suggestion from './Suggestion'
 import SuggestionsProps from './Suggestions.props'
+import useSuggestions from './hooks/useSuggestions'
 
 const Suggestions: FC<SuggestionsProps> = ({
   className,
   suggestions,
   onChoose,
 }) => {
-  const [highlightedSuggestion, setHighlightedSuggestion] = useState(-1)
-
-  useKeyDown(
-    'ArrowUp',
-    () => {
-      setHighlightedSuggestion((highlightedSuggestion) => {
-        if (highlightedSuggestion === -1) {
-          return size(suggestions) - 1
-        }
-
-        return highlightedSuggestion - 1
-      })
-    },
-    [suggestions]
-  )
-
-  useKeyDown(
-    'ArrowDown',
-    () => {
-      setHighlightedSuggestion((highlightedSuggestion) => {
-        if (highlightedSuggestion === size(suggestions) - 1) {
-          return 0
-        }
-
-        return highlightedSuggestion + 1
-      })
-    },
-    [suggestions]
-  )
-
-  useKeyDown(
-    'Enter',
-    () => {
-      if (highlightedSuggestion === -1) {
-        return
-      }
-
-      onChoose(suggestions[highlightedSuggestion])
-    },
-    [highlightedSuggestion, suggestions]
-  )
+  const { highlightedSuggestion } = useSuggestions(suggestions, onChoose)
 
   return (
     <ul
