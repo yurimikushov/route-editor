@@ -13,61 +13,64 @@ const Placemark: FC<PlacemarkProps> = ({
   onDragEnd,
 }) => {
   const map = useMap()
-  const circleRef = useRef<ymaps.Placemark | null>(null)
+  const placemarkRef = useRef<ymaps.Placemark | null>(null)
 
   useLayoutEffect(() => {
-    circleRef.current = new window.ymaps.Placemark([point.lat, point.lon], {})
+    placemarkRef.current = new window.ymaps.Placemark(
+      [point.lat, point.lon],
+      {}
+    )
 
-    map.geoObjects.add(circleRef.current)
+    map.geoObjects.add(placemarkRef.current)
 
     return () => {
-      if (isNull(circleRef.current)) {
+      if (isNull(placemarkRef.current)) {
         return
       }
 
-      map.geoObjects.remove(circleRef.current)
+      map.geoObjects.remove(placemarkRef.current)
     }
   }, [])
 
   useLayoutEffect(() => {
-    if (isNull(circleRef.current)) {
+    if (isNull(placemarkRef.current)) {
       return
     }
 
-    circleRef.current.geometry?.setCoordinates([point.lat, point.lon])
+    placemarkRef.current.geometry?.setCoordinates([point.lat, point.lon])
   }, [point.lat, point.lon])
 
   useLayoutEffect(() => {
-    if (isNull(circleRef.current)) {
+    if (isNull(placemarkRef.current)) {
       return
     }
 
-    circleRef.current.options.set('preset', preset)
+    placemarkRef.current.options.set('preset', preset)
   }, [preset])
 
   useLayoutEffect(() => {
-    if (isNull(circleRef.current)) {
+    if (isNull(placemarkRef.current)) {
       return
     }
 
-    circleRef.current.properties.set('balloonContent', balloonContent)
+    placemarkRef.current.properties.set('balloonContent', balloonContent)
   }, [balloonContent])
 
   useLayoutEffect(() => {
-    if (isNull(circleRef.current)) {
+    if (isNull(placemarkRef.current)) {
       return
     }
 
-    circleRef.current.options.set('draggable', String(draggable))
+    placemarkRef.current.options.set('draggable', String(draggable))
   }, [draggable])
 
   useLayoutEffect(() => {
-    if (isNull(circleRef.current) || isNil(onDragEnd)) {
+    if (isNull(placemarkRef.current) || isNil(onDragEnd)) {
       return
     }
 
     const handleDragEnd = () => {
-      const coords = circleRef.current?.geometry?.getCoordinates()
+      const coords = placemarkRef.current?.geometry?.getCoordinates()
 
       if (isNil(coords)) {
         return
@@ -79,14 +82,14 @@ const Placemark: FC<PlacemarkProps> = ({
       })
     }
 
-    circleRef.current.events.add('dragend', handleDragEnd)
+    placemarkRef.current.events.add('dragend', handleDragEnd)
 
     return () => {
-      if (isNull(circleRef.current)) {
+      if (isNull(placemarkRef.current)) {
         return
       }
 
-      circleRef.current.events.remove('dragend', handleDragEnd)
+      placemarkRef.current.events.remove('dragend', handleDragEnd)
     }
   }, [onDragEnd])
 
