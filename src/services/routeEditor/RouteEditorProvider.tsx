@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import map from 'lodash/map'
 import filter from 'lodash/filter'
-import { geocodeByCoords } from 'api/geocoder/geocode'
+import { geocodeByCoords } from 'api/geocoder'
 import { Address, Point } from './model'
 import RouteEditorContext from './RouteEditorContext'
 

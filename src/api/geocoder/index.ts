@@ -1,1 +1,1 @@
-export { geocodeByAddress } from './geocode'
+export { geocodeByAddress, geocodeByCoords } from './geocode'
