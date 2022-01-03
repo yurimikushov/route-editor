@@ -39,6 +39,7 @@ const DraggableList = <T,>({
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
+                    tabIndex={-1}
                   >
                     {renderItem(item)}
                   </li>
