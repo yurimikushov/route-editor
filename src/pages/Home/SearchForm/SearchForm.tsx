@@ -1,59 +1,27 @@
-import { FC, FormEvent, useCallback, useState } from 'react'
+import { FC } from 'react'
 import cn from 'classnames'
-import debounce from 'lodash/debounce'
 import isEmpty from 'lodash/isEmpty'
-import { Address, useRouteEditor } from 'services/routeEditor'
-import { useSuggestions } from 'services/suggestions'
+import TextInput from 'components/TextInput'
+import useSearchForm from './hooks/useSearchForm'
 import Suggestions from './Suggestions'
 import SearchFormProps from './SearchForm.props'
-import TextInput from 'components/TextInput'
 
 const SearchForm: FC<SearchFormProps> = ({ className }) => {
-  const [address, setAddress] = useState('')
-  const [shouldDisplaySuggestions, setShouldDisplaySuggestions] =
-    useState(false)
-  const { addPoint } = useRouteEditor()
   const {
+    address,
     suggestions,
-    load: loadSuggestions,
-    clear: clearSuggestions,
-  } = useSuggestions()
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault()
-  }
-
-  const debouncedLoadSuggestions = useCallback(
-    debounce(loadSuggestions, 100),
-    []
-  )
-
-  const handleAddressChange = (address: string) => {
-    setAddress(address)
-
-    if (isEmpty(address)) {
-      clearSuggestions()
-    } else {
-      debouncedLoadSuggestions(address)
-    }
-  }
-
-  const handleAddressFocus = () => {
-    setShouldDisplaySuggestions(true)
-  }
-
-  const handleAddressBlur = () => {
-    setShouldDisplaySuggestions(false)
-  }
-
-  const handleAddPoint = (address: Address) => {
-    addPoint(address)
-    clearSuggestions()
-    setAddress('')
-  }
+    shouldDisplaySuggestions,
+    handleAddressChange,
+    handleAddressFocus,
+    handleAddressBlur,
+    handleAddPoint,
+  } = useSearchForm()
 
   return (
-    <form className={cn(className, 'relative')} onSubmit={handleSubmit}>
+    <form
+      className={cn(className, 'relative')}
+      onSubmit={(e) => e.preventDefault()}
+    >
       <TextInput
         className='w-full'
         type='search'
