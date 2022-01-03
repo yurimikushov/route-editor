@@ -8,7 +8,7 @@ import HomeProps from './Home.props'
 const Home: FC<HomeProps> = ({ className }) => {
   return (
     <div className={cn(className, 'flex')}>
-      <div className='m-3 flex flex-col'>
+      <div className='m-3 flex flex-col w-80'>
         <SearchForm />
         <Route />
       </div>

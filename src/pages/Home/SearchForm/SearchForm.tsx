@@ -53,7 +53,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
   }
 
   return (
-    <form className={cn(className, 'relative w-80')} onSubmit={handleSubmit}>
+    <form className={cn(className, 'relative')} onSubmit={handleSubmit}>
       <TextInput
         className='w-full'
         type='search'
