@@ -10,11 +10,11 @@ const Route: FC<RouteProps> = ({ className }) => {
 
   return (
     <ul className={cn(className, 'py-2')}>
-      {map(route, (point) => (
+      {map(route, (address) => (
         <Point
-          key={`${point.point.lat}::${point.point.lon}`}
-          point={point}
-          onDelete={() => deletePoint(point)}
+          key={`${address.point.lat}::${address.point.lon}`}
+          point={address}
+          onDelete={() => deletePoint(address)}
         />
       ))}
     </ul>
