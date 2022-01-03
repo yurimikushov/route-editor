@@ -9,7 +9,7 @@ import SuggestionsProps from './Suggestions.props'
 const Suggestions: FC<SuggestionsProps> = ({
   className,
   suggestions,
-  onSelect,
+  onChoose,
 }) => {
   const [highlightedSuggestion, setHighlightedSuggestion] = useState(-1)
 
@@ -48,7 +48,7 @@ const Suggestions: FC<SuggestionsProps> = ({
         return
       }
 
-      onSelect(suggestions[highlightedSuggestion])
+      onChoose(suggestions[highlightedSuggestion])
     },
     [highlightedSuggestion, suggestions]
   )
@@ -60,7 +60,7 @@ const Suggestions: FC<SuggestionsProps> = ({
           key={`${suggestion.point.lat}::${suggestion.point.lon}`}
           isHighlighted={highlightedSuggestion === i}
           suggestion={suggestion}
-          onSelect={() => onSelect(suggestion)}
+          onChoose={() => onChoose(suggestion)}
         />
       ))}
     </ul>

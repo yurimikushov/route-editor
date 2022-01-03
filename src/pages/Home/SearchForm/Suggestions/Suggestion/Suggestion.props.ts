@@ -4,7 +4,7 @@ type SuggestionProps = {
   className?: string
   isHighlighted: boolean
   suggestion: Suggestion
-  onSelect: () => void
+  onChoose: () => void
 }
 
 export default SuggestionProps

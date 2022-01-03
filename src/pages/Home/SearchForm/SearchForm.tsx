@@ -68,7 +68,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
         <Suggestions
           className='absolute top-12 left-0'
           suggestions={suggestions}
-          onSelect={handleAddPoint}
+          onChoose={handleAddPoint}
         />
       )}
     </form>

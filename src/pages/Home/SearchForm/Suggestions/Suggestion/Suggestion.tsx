@@ -6,7 +6,7 @@ const Suggestion: FC<SuggestionProps> = ({
   className,
   isHighlighted,
   suggestion,
-  onSelect,
+  onChoose,
 }) => {
   const { name, description, point } = suggestion
 
@@ -21,7 +21,7 @@ const Suggestion: FC<SuggestionProps> = ({
         'cursor-pointer',
         'hover:bg-gray-50'
       )}
-      onMouseDown={onSelect}
+      onMouseDown={onChoose}
     >
       <span className='text-sm text-black'>{name}</span>
       <span className='text-xs text-gray-400'>{description}</span>
