@@ -1,1 +1,1 @@
-export { default as geocode } from './geocode'
+export { geocodeByAddress } from './geocode'

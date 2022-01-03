@@ -1,6 +1,8 @@
 import { FC, useState } from 'react'
+import map from 'lodash/map'
 import filter from 'lodash/filter'
-import { Address } from './model'
+import { geocodeByCoords } from 'api/geocoder/geocode'
+import { Address, Point } from './model'
 import RouteEditorContext from './RouteEditorContext'
 
 const RouteEditorProvider: FC = ({ children }) => {
@@ -8,6 +10,23 @@ const RouteEditorProvider: FC = ({ children }) => {
 
   const handleAddPoint = (address: Address) => {
     setRoute((route) => [...route, address])
+  }
+
+  const handleChangePoint = async (address: Address, newPoint: Point) => {
+    const newAddress = await geocodeByCoords(newPoint)
+
+    setRoute((route) => {
+      return map(route, (currentAddress) => {
+        if (
+          currentAddress.point.lat === address.point.lat &&
+          currentAddress.point.lon === address.point.lon
+        ) {
+          return newAddress
+        }
+
+        return currentAddress
+      })
+    })
   }
 
   const handleDeletePoint = (address: Address) => {
@@ -25,6 +44,7 @@ const RouteEditorProvider: FC = ({ children }) => {
       value={{
         route,
         addPoint: handleAddPoint,
+        changePoint: handleChangePoint,
         deletePoint: handleDeletePoint,
       }}
     >

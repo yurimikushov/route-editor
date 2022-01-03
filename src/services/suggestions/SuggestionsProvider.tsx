@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { geocode } from 'api/geocoder'
+import { geocodeByAddress } from 'api/geocoder'
 import { Suggestion } from './model'
 import SuggestionsContext from './SuggestionsContext'
 
@@ -12,7 +12,7 @@ const SuggestionsProvider: FC = ({ children }) => {
     setIsLoading(true)
 
     try {
-      setSuggestions(await geocode(address))
+      setSuggestions(await geocodeByAddress(address))
     } catch (error) {
       setError(error as Error)
     } finally {

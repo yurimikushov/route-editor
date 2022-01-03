@@ -36,6 +36,7 @@ it(`should render points when route isn't empty`, () => {
       },
     ],
     addPoint: noop,
+    changePoint: noop,
     deletePoint: noop,
   })
 
@@ -47,6 +48,7 @@ it('should render empty container when route is empty', () => {
   runMockUseRouteEditor({
     route: [],
     addPoint: noop,
+    changePoint: noop,
     deletePoint: noop,
   })
 
