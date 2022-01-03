@@ -75,6 +75,10 @@ const RouteEditorProvider: FC = ({ children }) => {
     })
   }
 
+  const handleUpdateRoute = (route: Array<Address>) => {
+    setRoute(route)
+  }
+
   return (
     <RouteEditorContext.Provider
       value={{
@@ -82,6 +86,7 @@ const RouteEditorProvider: FC = ({ children }) => {
         addPoint: handleAddPoint,
         changePoint: handleChangePoint,
         deletePoint: handleDeletePoint,
+        updateRoute: handleUpdateRoute,
       }}
     >
       {children}

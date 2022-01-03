@@ -1,52 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render empty container when route is empty 1`] = `
-<ul
-  className="py-2"
-/>
-`;
-
 exports[`should render placeholder when route is empty 1`] = `
-<ul
-  className="py-2"
+<div
+  className="w-full h-24 p-3 flex justify-center items-center text-sm text-gray-500"
 >
-  <div
-    className="w-full h-24 p-3 flex justify-center items-center text-sm text-gray-500"
-  >
-    Маршрут пока пустой
-  </div>
-</ul>
+  Маршрут пока пустой
+</div>
 `;
 
 exports[`should render points when route isn't empty 1`] = `
 <ul
   className="py-2"
+  data-rbd-droppable-context-id="0"
+  data-rbd-droppable-id="draggable-list"
 >
   <li
-    onDelete={[Function]}
-    point={
+    aria-describedby="rbd-hidden-text-0-hidden-text-0"
+    data-rbd-drag-handle-context-id="0"
+    data-rbd-drag-handle-draggable-id="0::0"
+    data-rbd-draggable-context-id="0"
+    data-rbd-draggable-id="0::0"
+    draggable={false}
+    onDragStart={[Function]}
+    onTransitionEnd={null}
+    role="button"
+    style={
       Object {
-        "description": "Some description",
-        "name": "Balalayka",
-        "point": Object {
-          "lat": 0,
-          "lon": 0,
-        },
+        "transform": null,
+        "transition": null,
       }
     }
-  />
+    tabIndex={0}
+  >
+    <div
+      onDelete={[Function]}
+      point={
+        Object {
+          "description": "Some description",
+          "id": "0::0",
+          "name": "Balalayka",
+          "point": Object {
+            "lat": 0,
+            "lon": 0,
+          },
+        }
+      }
+    />
+  </li>
   <li
-    onDelete={[Function]}
-    point={
+    aria-describedby="rbd-hidden-text-0-hidden-text-0"
+    data-rbd-drag-handle-context-id="0"
+    data-rbd-drag-handle-draggable-id="1::1"
+    data-rbd-draggable-context-id="0"
+    data-rbd-draggable-id="1::1"
+    draggable={false}
+    onDragStart={[Function]}
+    onTransitionEnd={null}
+    role="button"
+    style={
       Object {
-        "description": "Some description",
-        "name": "Vodka",
-        "point": Object {
-          "lat": 0,
-          "lon": 0,
-        },
+        "transform": null,
+        "transition": null,
       }
     }
-  />
+    tabIndex={0}
+  >
+    <div
+      onDelete={[Function]}
+      point={
+        Object {
+          "description": "Some description",
+          "id": "1::1",
+          "name": "Vodka",
+          "point": Object {
+            "lat": 1,
+            "lon": 1,
+          },
+        }
+      }
+    />
+  </li>
 </ul>
 `;

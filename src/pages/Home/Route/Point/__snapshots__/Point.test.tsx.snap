@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render point 1`] = `
-<li
+<div
   className="my-3 px-3 py-2 flex justify-between items-center bg-gray-100 rounded"
 >
   <div
@@ -23,11 +23,11 @@ exports[`should render point 1`] = `
   >
     Clear
   </button>
-</li>
+</div>
 `;
 
 exports[`should render point 2`] = `
-<li
+<div
   className="my-3 px-3 py-2 flex justify-between items-center bg-gray-100 rounded"
 >
   <div
@@ -49,5 +49,5 @@ exports[`should render point 2`] = `
   >
     Clear
   </button>
-</li>
+</div>
 `;

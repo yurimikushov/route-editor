@@ -5,7 +5,7 @@ import PointProps from './Point.props'
 
 const Point: FC<PointProps> = ({ className, point, onDelete }) => {
   return (
-    <li
+    <div
       className={cn(
         className,
         'my-3 px-3 py-2',
@@ -18,7 +18,7 @@ const Point: FC<PointProps> = ({ className, point, onDelete }) => {
         <span className='text-sm text-gray-400'>{point.description}</span>
       </div>
       <ClearButton onClick={onDelete} />
-    </li>
+    </div>
   )
 }
 

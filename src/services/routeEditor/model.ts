@@ -3,6 +3,7 @@ type RouteEditor = {
   addPoint: (address: Address) => void
   changePoint: (address: Address, newPoint: Point) => void
   deletePoint: (address: Address) => void
+  updateRoute: (route: Array<Address>) => void
 }
 
 type Address = {

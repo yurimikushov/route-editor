@@ -5,7 +5,7 @@ import Route from './Route'
 
 // eslint-disable-next-line react/display-name
 jest.mock('./Point/Point', () => (props: { className?: string }) => (
-  <li {...props}></li>
+  <div {...props}></div>
 ))
 
 jest.mock('services/routeEditor')
@@ -30,14 +30,15 @@ it(`should render points when route isn't empty`, () => {
         name: 'Vodka',
         description: 'Some description',
         point: {
-          lat: 0,
-          lon: 0,
+          lat: 1,
+          lon: 1,
         },
       },
     ],
     addPoint: noop,
     changePoint: noop,
     deletePoint: noop,
+    updateRoute: noop,
   })
 
   const tree = renderer.create(<Route />).toJSON()
@@ -50,6 +51,7 @@ it('should render placeholder when route is empty', () => {
     addPoint: noop,
     changePoint: noop,
     deletePoint: noop,
+    updateRoute: noop,
   })
 
   const tree = renderer.create(<Route />).toJSON()
