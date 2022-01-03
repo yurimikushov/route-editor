@@ -13,7 +13,10 @@ const Point: FC<PointProps> = ({ className, point, onDelete }) => {
         'bg-gray-100 rounded'
       )}
     >
-      <span className='text-gray-600'>{point.name}</span>
+      <div className='flex flex-col'>
+        <span className='text-gray-600'>{point.name}</span>
+        <span className='text-sm text-gray-400'>{point.description}</span>
+      </div>
       <ClearButton onClick={onDelete} />
     </li>
   )

@@ -4,11 +4,20 @@ exports[`should render point 1`] = `
 <li
   className="my-3 px-3 py-2 flex justify-between items-center bg-gray-100 rounded"
 >
-  <span
-    className="text-gray-600"
+  <div
+    className="flex flex-col"
   >
-    Balalayka
-  </span>
+    <span
+      className="text-gray-600"
+    >
+      Balalayka
+    </span>
+    <span
+      className="text-sm text-gray-400"
+    >
+      Some description
+    </span>
+  </div>
   <button
     onClick={[Function]}
   >
@@ -21,11 +30,20 @@ exports[`should render point 2`] = `
 <li
   className="my-3 px-3 py-2 flex justify-between items-center bg-gray-100 rounded"
 >
-  <span
-    className="text-gray-600"
+  <div
+    className="flex flex-col"
   >
-    Vodka
-  </span>
+    <span
+      className="text-gray-600"
+    >
+      Vodka
+    </span>
+    <span
+      className="text-sm text-gray-400"
+    >
+      Some description
+    </span>
+  </div>
   <button
     onClick={[Function]}
   >
