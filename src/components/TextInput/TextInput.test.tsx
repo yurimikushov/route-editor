@@ -10,7 +10,15 @@ it('should render text input', () => {
 
 it('should render text input without clear btn', () => {
   const tree = renderer
-    .create(<TextInput value='123' placeholder='Type here' onChange={noop} />)
+    .create(
+      <TextInput
+        value='123'
+        placeholder='Type here'
+        onChange={noop}
+        onFocus={noop}
+        onBlur={noop}
+      />
+    )
     .toJSON()
   expect(tree).toMatchSnapshot()
 })

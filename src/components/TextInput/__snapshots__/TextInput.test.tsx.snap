@@ -42,7 +42,9 @@ exports[`should render text input without clear btn 1`] = `
 >
   <input
     className="focus:outline-none"
+    onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     placeholder="Type here"
     type="text"
     value="123"

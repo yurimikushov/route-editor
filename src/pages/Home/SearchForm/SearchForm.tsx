@@ -10,6 +10,8 @@ import TextInput from 'components/TextInput'
 
 const SearchForm: FC<SearchFormProps> = ({ className }) => {
   const [address, setAddress] = useState('')
+  const [shouldDisplaySuggestions, setShouldDisplaySuggestions] =
+    useState(false)
   const { addRoute: handleAddPoint } = useRouteEditor()
   const {
     suggestions,
@@ -36,6 +38,14 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
     }
   }
 
+  const handleAddressFocus = () => {
+    setShouldDisplaySuggestions(true)
+  }
+
+  const handleAddressBlur = () => {
+    setShouldDisplaySuggestions(false)
+  }
+
   return (
     <form className={cn(className, 'relative w-80')} onSubmit={handleSubmit}>
       <TextInput
@@ -45,8 +55,10 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
         placeholder='Новая точка маршрута'
         hasClear
         onChange={handleAddressChange}
+        onFocus={handleAddressFocus}
+        onBlur={handleAddressBlur}
       />
-      {!isEmpty(suggestions) && (
+      {shouldDisplaySuggestions && !isEmpty(suggestions) && (
         <Suggestions
           className='absolute top-12 left-0'
           suggestions={suggestions}
