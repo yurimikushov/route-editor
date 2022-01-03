@@ -12,7 +12,7 @@ const Home: FC<HomeProps> = ({ className }) => {
         <SearchForm />
         <Route />
       </div>
-      <Map />
+      <Map className='w-[calc(100%-theme(space.80))] h-screen' />
     </div>
   )
 }
