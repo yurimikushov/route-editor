@@ -2,7 +2,7 @@ import { FC, FormEvent, useCallback, useState } from 'react'
 import cn from 'classnames'
 import debounce from 'lodash/debounce'
 import isEmpty from 'lodash/isEmpty'
-import { useRouteEditor } from 'services/routeEditor'
+import { Address, useRouteEditor } from 'services/routeEditor'
 import { useSuggestions } from 'services/suggestions'
 import Suggestions from './Suggestions'
 import SearchFormProps from './SearchForm.props'
@@ -12,7 +12,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
   const [address, setAddress] = useState('')
   const [shouldDisplaySuggestions, setShouldDisplaySuggestions] =
     useState(false)
-  const { addPoint: handleAddPoint } = useRouteEditor()
+  const { addPoint } = useRouteEditor()
   const {
     suggestions,
     load: loadSuggestions,
@@ -44,6 +44,12 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
 
   const handleAddressBlur = () => {
     setShouldDisplaySuggestions(false)
+  }
+
+  const handleAddPoint = (address: Address) => {
+    addPoint(address)
+    clearSuggestions()
+    setAddress('')
   }
 
   return (

@@ -21,7 +21,7 @@ const Suggestion: FC<SuggestionProps> = ({
         'cursor-pointer',
         'hover:bg-gray-50'
       )}
-      onClick={onSelect}
+      onMouseDown={onSelect}
     >
       <span className='text-sm text-black'>{name}</span>
       <span className='text-xs text-gray-400'>{description}</span>
