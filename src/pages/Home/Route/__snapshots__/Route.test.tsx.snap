@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render empty container when route is empty 1`] = `
+<ul
+  className="py-2"
+/>
+`;
+
+exports[`should render points when route isn't empty 1`] = `
+<ul
+  className="py-2"
+>
+  <li
+    onDelete={[Function]}
+    point={
+      Object {
+        "description": "Some description",
+        "name": "Balalayka",
+        "point": Object {
+          "lat": 0,
+          "lon": 0,
+        },
+      }
+    }
+  />
+  <li
+    onDelete={[Function]}
+    point={
+      Object {
+        "description": "Some description",
+        "name": "Vodka",
+        "point": Object {
+          "lat": 0,
+          "lon": 0,
+        },
+      }
+    }
+  />
+</ul>
+`;
