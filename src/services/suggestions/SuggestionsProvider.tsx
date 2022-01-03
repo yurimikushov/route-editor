@@ -1,27 +1,35 @@
-import { FC, useState } from 'react'
+import { FC, useReducer } from 'react'
 import { geocodeByAddress } from 'api/geocoder'
-import { Suggestion } from './model'
+import { clear, loadBegin, loadFail, loadSuccess } from './actions'
+import { SuggestionsState } from './model'
+import suggestionsReducer from './reducer'
 import SuggestionsContext from './SuggestionsContext'
 
+const initialState: SuggestionsState = {
+  isLoading: false,
+  suggestions: [],
+  error: null,
+}
+
 const SuggestionsProvider: FC = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [suggestions, setSuggestions] = useState<Array<Suggestion>>([])
-  const [error, setError] = useState<Error | null>(null)
+  const [{ isLoading, suggestions, error }, dispatch] = useReducer(
+    suggestionsReducer,
+    initialState
+  )
 
   const handleLoad = async (address: string) => {
-    setIsLoading(true)
+    dispatch(loadBegin())
 
     try {
-      setSuggestions(await geocodeByAddress(address))
+      const suggestions = await geocodeByAddress(address)
+      dispatch(loadSuccess(suggestions))
     } catch (error) {
-      setError(error as Error)
-    } finally {
-      setIsLoading(false)
+      dispatch(loadFail(error as Error))
     }
   }
 
   const handleClear = () => {
-    setSuggestions([])
+    dispatch(clear())
   }
 
   return (
