@@ -8,3 +8,12 @@ input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   -webkit-appearance: none;
 }
+
+*::-webkit-scrollbar {
+  @apply w-2;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-gray-300;
+  @apply rounded-md;
+}
