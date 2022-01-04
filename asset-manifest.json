@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.fce3be89.css",
-    "main.js": "/static/js/main.c267156b.js",
-    "index.html": "/index.html",
-    "static/media/spinner.svg": "/static/media/spinner.728e914d44318c3cfc35288b31a5d6e9.svg",
-    "static/media/clear.svg": "/static/media/clear.25b8e51e8280f80d1354d0ddf3635fc2.svg",
-    "main.fce3be89.css.map": "/static/css/main.fce3be89.css.map",
-    "main.c267156b.js.map": "/static/js/main.c267156b.js.map"
+    "main.css": "/route-editor/static/css/main.fce3be89.css",
+    "main.js": "/route-editor/static/js/main.a2b6827e.js",
+    "index.html": "/route-editor/index.html",
+    "static/media/spinner.svg": "/route-editor/static/media/spinner.728e914d44318c3cfc35288b31a5d6e9.svg",
+    "static/media/clear.svg": "/route-editor/static/media/clear.25b8e51e8280f80d1354d0ddf3635fc2.svg",
+    "main.fce3be89.css.map": "/route-editor/static/css/main.fce3be89.css.map",
+    "main.a2b6827e.js.map": "/route-editor/static/js/main.a2b6827e.js.map"
   },
   "entrypoints": [
     "static/css/main.fce3be89.css",
-    "static/js/main.c267156b.js"
+    "static/js/main.a2b6827e.js"
   ]
 }
