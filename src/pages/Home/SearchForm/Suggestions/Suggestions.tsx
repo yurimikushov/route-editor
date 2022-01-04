@@ -17,6 +17,8 @@ const Suggestions: FC<SuggestionsProps> = ({
       className={cn(
         className,
         'py-1 w-full',
+        'max-h-[30vh] md:max-h-[50vh]',
+        'overflow-y-scroll md:overflow-y-auto',
         'bg-white rounded-md',
         'border border-gray-200 shadow-lg'
       )}
