@@ -4,31 +4,37 @@ An implementation of [this task](https://dl.funbox.ru/qt-js.pdf).
 
 ## Dev
 
-Clones this repository, if you didn't it
+### First of all
+
+Clone this repository, if you didn't it
 
 ```
 git clone https://github.com/yurimikushov/route-editor.git
 ```
 
-Installs deps
+Should set environment variables in an `.env` file to correctly app usage, look an example in the [.env.example](./.env.example)
+
+### Next steps
+
+Install deps
 
 ```
 npm i
 ```
 
-Sets up git hooks by `husky`
+Set up git hooks by `husky`
 
 ```
 npm run prepare
 ```
 
-Runs the app in `development` mode on `localhost:3000`
+Run the app in `development` mode on `localhost:3000`
 
 ```
 npm run start
 ```
 
-Builds the app for `production` to the `build` folder
+Or build the app for `production` to the `build` folder
 
 ```
 npm run build
