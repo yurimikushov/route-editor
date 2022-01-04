@@ -8,6 +8,7 @@ import SearchFormProps from './SearchForm.props'
 
 const SearchForm: FC<SearchFormProps> = ({ className }) => {
   const {
+    searchInputRef,
     address,
     suggestions,
     shouldDisplaySuggestions,
@@ -23,6 +24,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
       onSubmit={(e) => e.preventDefault()}
     >
       <TextInput
+        ref={searchInputRef}
         className='w-full'
         type='search'
         value={address}

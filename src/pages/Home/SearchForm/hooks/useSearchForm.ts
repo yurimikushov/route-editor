@@ -1,10 +1,12 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import debounce from 'lodash/debounce'
 import isEmpty from 'lodash/isEmpty'
+import defer from 'lodash/defer'
 import { NewAddress, useRouteEditor } from 'services/routeEditor'
 import { useSuggestions } from 'services/suggestions'
 
 const useSearchForm = () => {
+  const searchInputRef = useRef<HTMLInputElement>(null)
   const [address, setAddress] = useState('')
   const [shouldDisplaySuggestions, setShouldDisplaySuggestions] =
     useState(false)
@@ -42,9 +44,11 @@ const useSearchForm = () => {
     addAddress(newAddress)
     clearSuggestions()
     setAddress('')
+    defer(() => searchInputRef.current?.focus())
   }
 
   return {
+    searchInputRef,
     address,
     suggestions,
     shouldDisplaySuggestions,

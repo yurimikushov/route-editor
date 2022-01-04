@@ -1,20 +1,32 @@
-import { ChangeEvent, FC, useRef } from 'react'
+import {
+  ChangeEvent,
+  ForwardRefRenderFunction,
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+} from 'react'
 import cn from 'classnames'
 import isEmpty from 'lodash/isEmpty'
+import nonNullable from 'lib/nonNullable'
 import useEffectWhen from 'hooks/useEffectWhen'
 import ClearButton from 'components/ClearButton'
 import TextInputProps from './TextInput.props'
 
-const TextInput: FC<TextInputProps> = ({
-  className,
-  type = 'text',
-  value,
-  autoFocus = false,
-  hasClear = false,
-  onChange,
-  ...props
-}) => {
+const TextInput: ForwardRefRenderFunction<HTMLInputElement, TextInputProps> = (
+  {
+    className,
+    type = 'text',
+    value,
+    autoFocus = false,
+    hasClear = false,
+    onChange,
+    ...props
+  },
+  externalRef
+) => {
   const inputRef = useRef<HTMLInputElement>(null)
+
+  useImperativeHandle(externalRef, () => nonNullable(inputRef.current), [])
 
   useEffectWhen(() => {
     inputRef.current?.focus()
@@ -56,4 +68,4 @@ const TextInput: FC<TextInputProps> = ({
   )
 }
 
-export default TextInput
+export default forwardRef(TextInput)
