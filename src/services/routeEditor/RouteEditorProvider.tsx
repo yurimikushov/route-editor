@@ -1,32 +1,37 @@
 import { FC, useState } from 'react'
+import { nanoid } from 'nanoid'
 import map from 'lodash/map'
-import filter from 'lodash/filter'
+import reject from 'lodash/reject'
 import { geocodeByCoords } from 'api/geocoder'
-import { Address, Point } from './model'
+import { Address, NewAddress, Point } from './model'
 import RouteEditorContext from './RouteEditorContext'
 
 const RouteEditorProvider: FC = ({ children }) => {
   const [route, setRoute] = useState<Array<Address>>([])
 
-  const handleAddPoint = (address: Address) => {
-    setRoute((route) => [...route, address])
+  const handleAddPoint = (newAddress: NewAddress) => {
+    setRoute((route) => [
+      ...route,
+      {
+        ...newAddress,
+        id: nanoid(),
+      },
+    ])
   }
 
-  const handleChangePoint = async (address: Address, newPoint: Point) => {
+  const handleChangePoint = async (id: string, newPoint: Point) => {
     setRoute((route) => {
-      return map(route, (currentAddress) => {
-        if (
-          currentAddress.point.lat === address.point.lat &&
-          currentAddress.point.lon === address.point.lon
-        ) {
+      return map(route, (address) => {
+        if (address.id === id) {
           return {
+            id,
             name: 'Адрес обновляется...',
             description: '',
             point: newPoint,
           }
         }
 
-        return currentAddress
+        return address
       })
     })
 
@@ -34,45 +39,37 @@ const RouteEditorProvider: FC = ({ children }) => {
       const newAddress = await geocodeByCoords(newPoint)
 
       setRoute((route) => {
-        return map(route, (currentAddress) => {
-          if (
-            currentAddress.point.lat === newPoint.lat &&
-            currentAddress.point.lon === newPoint.lon
-          ) {
-            return newAddress
+        return map(route, (address) => {
+          if (address.id === id) {
+            return {
+              ...newAddress,
+              id,
+            }
           }
 
-          return currentAddress
+          return address
         })
       })
     } catch {
       setRoute((route) => {
-        return map(route, (currentAddress) => {
-          if (
-            currentAddress.point.lat === newPoint.lat &&
-            currentAddress.point.lon === newPoint.lon
-          ) {
+        return map(route, (address) => {
+          if (address.id === id) {
             return {
+              id,
               name: 'Не удалось обновить адрес',
               description: '',
               point: newPoint,
             }
           }
 
-          return currentAddress
+          return address
         })
       })
     }
   }
 
-  const handleDeletePoint = (address: Address) => {
-    setRoute((route) => {
-      return filter(route, ({ point }) => {
-        return (
-          point.lat !== address.point.lat || point.lon !== address.point.lon
-        )
-      })
-    })
+  const handleDeletePoint = (id: string) => {
+    setRoute((route) => reject(route, { id }))
   }
 
   const handleUpdateRoute = (route: Array<Address>) => {

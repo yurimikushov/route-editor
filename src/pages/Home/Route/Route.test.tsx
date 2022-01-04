@@ -19,6 +19,7 @@ it(`should render points when route isn't empty`, () => {
   runMockUseRouteEditor({
     route: [
       {
+        id: '1',
         name: 'Balalayka',
         description: 'Some description',
         point: {
@@ -27,6 +28,7 @@ it(`should render points when route isn't empty`, () => {
         },
       },
       {
+        id: '2',
         name: 'Vodka',
         description: 'Some description',
         point: {

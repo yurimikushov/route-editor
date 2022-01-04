@@ -1,7 +1,7 @@
 import { FC, useMemo, useState } from 'react'
 import cn from 'classnames'
 import map from 'lodash/map'
-import { Address, Point, useRouteEditor } from 'services/routeEditor'
+import { Point, useRouteEditor } from 'services/routeEditor'
 import NativeMap, { Placemark, Polyline, ZoomControl } from 'components/Map'
 import MapProps from './Map.props'
 
@@ -17,9 +17,9 @@ const Map: FC<MapProps> = ({ className }) => {
     setIsPointDragging(true)
   }
 
-  const handleDragPointEnd = (address: Address, point: Point) => {
+  const handleDragPointEnd = (id: string, point: Point) => {
     setIsPointDragging(false)
-    changePoint(address, point)
+    changePoint(id, point)
   }
 
   return (
@@ -27,13 +27,13 @@ const Map: FC<MapProps> = ({ className }) => {
       <ZoomControl className='absolute top-1/2 right-4 transform -translate-y-1/2' />
       {map(route, (address) => (
         <Placemark
-          key={`${address.point.lat}::${address.point.lon}`}
+          key={address.id}
           point={address.point}
           preset='islands#blueCircleIcon'
           balloonContent={address.name}
           draggable
           onDragStart={handleDragPointStart}
-          onDragEnd={(point) => handleDragPointEnd(address, point)}
+          onDragEnd={(point) => handleDragPointEnd(address.id, point)}
         />
       ))}
       {!isPointDragging && (

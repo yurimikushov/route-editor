@@ -17,9 +17,9 @@ exports[`should render points when route isn't empty 1`] = `
   <li
     aria-describedby="rbd-hidden-text-0-hidden-text-0"
     data-rbd-drag-handle-context-id="0"
-    data-rbd-drag-handle-draggable-id="0::0"
+    data-rbd-drag-handle-draggable-id="1"
     data-rbd-draggable-context-id="0"
-    data-rbd-draggable-id="0::0"
+    data-rbd-draggable-id="1"
     draggable={false}
     onDragStart={[Function]}
     onTransitionEnd={null}
@@ -37,7 +37,7 @@ exports[`should render points when route isn't empty 1`] = `
       point={
         Object {
           "description": "Some description",
-          "id": "0::0",
+          "id": "1",
           "name": "Balalayka",
           "point": Object {
             "lat": 0,
@@ -50,9 +50,9 @@ exports[`should render points when route isn't empty 1`] = `
   <li
     aria-describedby="rbd-hidden-text-0-hidden-text-0"
     data-rbd-drag-handle-context-id="0"
-    data-rbd-drag-handle-draggable-id="1::1"
+    data-rbd-drag-handle-draggable-id="2"
     data-rbd-draggable-context-id="0"
-    data-rbd-draggable-id="1::1"
+    data-rbd-draggable-id="2"
     draggable={false}
     onDragStart={[Function]}
     onTransitionEnd={null}
@@ -70,7 +70,7 @@ exports[`should render points when route isn't empty 1`] = `
       point={
         Object {
           "description": "Some description",
-          "id": "1::1",
+          "id": "2",
           "name": "Vodka",
           "point": Object {
             "lat": 1,

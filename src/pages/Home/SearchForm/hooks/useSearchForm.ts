@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import debounce from 'lodash/debounce'
 import isEmpty from 'lodash/isEmpty'
-import { Address, useRouteEditor } from 'services/routeEditor'
+import { NewAddress, useRouteEditor } from 'services/routeEditor'
 import { useSuggestions } from 'services/suggestions'
 
 const useSearchForm = () => {
@@ -38,8 +38,8 @@ const useSearchForm = () => {
     setShouldDisplaySuggestions(false)
   }
 
-  const handleAddPoint = (address: Address) => {
-    addPoint(address)
+  const handleAddPoint = (newAddress: NewAddress) => {
+    addPoint(newAddress)
     clearSuggestions()
     setAddress('')
   }

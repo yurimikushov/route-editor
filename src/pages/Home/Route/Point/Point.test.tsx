@@ -12,6 +12,7 @@ it('should render point', () => {
     .create(
       <Point
         point={{
+          id: '1',
           name: 'Balalayka',
           description: 'Some description',
           point: {
@@ -29,6 +30,7 @@ it('should render point', () => {
     .create(
       <Point
         point={{
+          id: '2',
           name: 'Vodka',
           description: 'Some description',
           point: {

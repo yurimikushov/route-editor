@@ -1,12 +1,15 @@
 type RouteEditor = {
   route: Array<Address>
-  addPoint: (address: Address) => void
-  changePoint: (address: Address, newPoint: Point) => void
-  deletePoint: (address: Address) => void
+  addPoint: (newAddress: NewAddress) => void
+  changePoint: (id: string, newPoint: Point) => void
+  deletePoint: (id: string) => void
   updateRoute: (route: Array<Address>) => void
 }
 
+type NewAddress = Omit<Address, 'id'>
+
 type Address = {
+  id: string
   name: string
   description: string
   point: Point
@@ -17,4 +20,4 @@ type Point = {
   lon: number
 }
 
-export type { RouteEditor, Address, Point }
+export type { RouteEditor, NewAddress, Address, Point }

@@ -1,6 +1,5 @@
-import { FC, useMemo } from 'react'
+import { FC } from 'react'
 import cn from 'classnames'
-import map from 'lodash/map'
 import isEmpty from 'lodash/isEmpty'
 import { useRouteEditor } from 'services/routeEditor'
 import DraggableList from 'components/DraggableList'
@@ -11,24 +10,17 @@ import RouteProps from './Route.props'
 const Route: FC<RouteProps> = ({ className }) => {
   const { route, deletePoint, updateRoute } = useRouteEditor()
 
-  const list = useMemo(() => {
-    return map(route, (address) => ({
-      ...address,
-      id: `${address.point.lat}::${address.point.lon}`,
-    }))
-  }, [route])
-
   return (
     <>
-      {!isEmpty(list) ? (
+      {!isEmpty(route) ? (
         <DraggableList
           className={cn(className, 'py-2')}
-          list={list}
+          list={route}
           renderItem={(address) => (
             <Point
               key={address.id}
               point={address}
-              onDelete={() => deletePoint(address)}
+              onDelete={() => deletePoint(address.id)}
             />
           )}
           onUpdate={updateRoute}
