@@ -37,9 +37,9 @@ it(`should render points when route isn't empty`, () => {
         },
       },
     ],
-    addPoint: noop,
-    changePoint: noop,
-    deletePoint: noop,
+    addAddress: noop,
+    changeAddress: noop,
+    deleteAddress: noop,
     updateRoute: noop,
   })
 
@@ -50,9 +50,9 @@ it(`should render points when route isn't empty`, () => {
 it('should render placeholder when route is empty', () => {
   runMockUseRouteEditor({
     route: [],
-    addPoint: noop,
-    changePoint: noop,
-    deletePoint: noop,
+    addAddress: noop,
+    changeAddress: noop,
+    deleteAddress: noop,
     updateRoute: noop,
   })
 

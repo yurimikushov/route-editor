@@ -14,7 +14,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
     handleAddressChange,
     handleAddressFocus,
     handleAddressBlur,
-    handleAddPoint,
+    handleAddAddress,
   } = useSearchForm()
 
   return (
@@ -36,7 +36,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
         <Suggestions
           className='absolute top-12 left-0'
           suggestions={suggestions}
-          onChoose={handleAddPoint}
+          onChoose={handleAddAddress}
         />
       )}
     </form>

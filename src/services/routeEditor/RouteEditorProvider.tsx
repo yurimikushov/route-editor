@@ -1,88 +1,54 @@
-import { FC, useState } from 'react'
-import { nanoid } from 'nanoid'
-import map from 'lodash/map'
-import reject from 'lodash/reject'
+import { FC, useReducer } from 'react'
 import { geocodeByCoords } from 'api/geocoder'
-import { Address, NewAddress, Point } from './model'
+import {
+  addAddress,
+  changeAddressBegin,
+  changeAddressSuccess,
+  changeAddressFail,
+  deleteAddress,
+  updateRoute,
+} from './actions'
+import { Address, NewAddress, Point, RouteEditorState } from './model'
+import routeEditorReducer from './reducer'
 import RouteEditorContext from './RouteEditorContext'
 
-const RouteEditorProvider: FC = ({ children }) => {
-  const [route, setRoute] = useState<Array<Address>>([])
+const initialState: RouteEditorState = {
+  route: [],
+}
 
-  const handleAddPoint = (newAddress: NewAddress) => {
-    setRoute((route) => [
-      ...route,
-      {
-        ...newAddress,
-        id: nanoid(),
-      },
-    ])
+const RouteEditorProvider: FC = ({ children }) => {
+  const [{ route }, dispatch] = useReducer(routeEditorReducer, initialState)
+
+  const handleAddAddress = (newAddress: NewAddress) => {
+    dispatch(addAddress(newAddress))
   }
 
-  const handleChangePoint = async (id: string, newPoint: Point) => {
-    setRoute((route) => {
-      return map(route, (address) => {
-        if (address.id === id) {
-          return {
-            id,
-            name: 'Адрес обновляется...',
-            description: '',
-            point: newPoint,
-          }
-        }
-
-        return address
-      })
-    })
+  const handleChangeAddress = async (id: string, newPoint: Point) => {
+    dispatch(changeAddressBegin(id, newPoint))
 
     try {
       const newAddress = await geocodeByCoords(newPoint)
-
-      setRoute((route) => {
-        return map(route, (address) => {
-          if (address.id === id) {
-            return {
-              ...newAddress,
-              id,
-            }
-          }
-
-          return address
-        })
-      })
+      dispatch(changeAddressSuccess(id, newAddress))
     } catch {
-      setRoute((route) => {
-        return map(route, (address) => {
-          if (address.id === id) {
-            return {
-              id,
-              name: 'Не удалось обновить адрес',
-              description: '',
-              point: newPoint,
-            }
-          }
-
-          return address
-        })
-      })
+      dispatch(changeAddressFail(id))
     }
   }
 
-  const handleDeletePoint = (id: string) => {
-    setRoute((route) => reject(route, { id }))
+  const handleDeleteAddress = (id: string) => {
+    dispatch(deleteAddress(id))
   }
 
   const handleUpdateRoute = (route: Array<Address>) => {
-    setRoute(route)
+    dispatch(updateRoute(route))
   }
 
   return (
     <RouteEditorContext.Provider
       value={{
         route,
-        addPoint: handleAddPoint,
-        changePoint: handleChangePoint,
-        deletePoint: handleDeletePoint,
+        addAddress: handleAddAddress,
+        changeAddress: handleChangeAddress,
+        deleteAddress: handleDeleteAddress,
         updateRoute: handleUpdateRoute,
       }}
     >

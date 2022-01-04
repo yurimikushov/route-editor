@@ -8,7 +8,7 @@ const useSearchForm = () => {
   const [address, setAddress] = useState('')
   const [shouldDisplaySuggestions, setShouldDisplaySuggestions] =
     useState(false)
-  const { addPoint } = useRouteEditor()
+  const { addAddress } = useRouteEditor()
   const {
     suggestions,
     load: loadSuggestions,
@@ -38,8 +38,8 @@ const useSearchForm = () => {
     setShouldDisplaySuggestions(false)
   }
 
-  const handleAddPoint = (newAddress: NewAddress) => {
-    addPoint(newAddress)
+  const handleAddAddress = (newAddress: NewAddress) => {
+    addAddress(newAddress)
     clearSuggestions()
     setAddress('')
   }
@@ -51,7 +51,7 @@ const useSearchForm = () => {
     handleAddressChange,
     handleAddressFocus,
     handleAddressBlur,
-    handleAddPoint,
+    handleAddAddress,
   }
 }
 

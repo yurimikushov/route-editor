@@ -6,7 +6,7 @@ import NativeMap, { Placemark, Polyline, ZoomControl } from 'components/Map'
 import MapProps from './Map.props'
 
 const Map: FC<MapProps> = ({ className }) => {
-  const { route, changePoint } = useRouteEditor()
+  const { route, changeAddress } = useRouteEditor()
   const [isPointDragging, setIsPointDragging] = useState(false)
 
   const mapPoints = useMemo(() => {
@@ -19,7 +19,7 @@ const Map: FC<MapProps> = ({ className }) => {
 
   const handleDragPointEnd = (id: string, point: Point) => {
     setIsPointDragging(false)
-    changePoint(id, point)
+    changeAddress(id, point)
   }
 
   return (

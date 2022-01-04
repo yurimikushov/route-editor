@@ -1,0 +1,6 @@
+export const ADD_ADDRESS = 'routeEditor/ADD_ADDRESS'
+export const CHANGE_ADDRESS_BEGIN = 'routeEditor/CHANGE_ADDRESS_BEGIN'
+export const CHANGE_ADDRESS_SUCCESS = 'routeEditor/CHANGE_ADDRESS_SUCCESS'
+export const CHANGE_ADDRESS_FAIL = 'routeEditor/CHANGE_ADDRESS_FAIL'
+export const DELETE_ADDRESS = 'routeEditor/DELETE_ADDRESS'
+export const UPDATE_ROUTE = 'routeEditor/UPDATE_ROUTE'

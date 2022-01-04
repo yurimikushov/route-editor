@@ -8,7 +8,7 @@ import Placeholder from './Placeholder'
 import RouteProps from './Route.props'
 
 const Route: FC<RouteProps> = ({ className }) => {
-  const { route, deletePoint, updateRoute } = useRouteEditor()
+  const { route, deleteAddress, updateRoute } = useRouteEditor()
 
   return (
     <>
@@ -20,7 +20,7 @@ const Route: FC<RouteProps> = ({ className }) => {
             <Point
               key={address.id}
               point={address}
-              onDelete={() => deletePoint(address.id)}
+              onDelete={() => deleteAddress(address.id)}
             />
           )}
           onUpdate={updateRoute}
