@@ -8,11 +8,11 @@ const Placeholder: FC<PlaceholderProps> = ({ className }) => {
       className={cn(
         className,
         'w-full h-24 p-3',
-        'flex justify-center items-center',
-        'text-sm text-gray-500'
+        'flex flex-col justify-center items-center'
       )}
     >
-      Маршрут пока пустой
+      <span className='text-md text-gray-500'>Здесь пока ничего нет</span>
+      <span className='text-sm text-gray-500'>Добавьте первую точку</span>
     </div>
   )
 }
