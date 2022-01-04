@@ -27,6 +27,7 @@ const SearchForm: FC<SearchFormProps> = ({ className }) => {
         type='search'
         value={address}
         placeholder='Новая точка маршрута'
+        autoFocus
         hasClear
         onChange={handleAddressChange}
         onFocus={handleAddressFocus}
