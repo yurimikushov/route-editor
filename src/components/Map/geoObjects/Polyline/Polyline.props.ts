@@ -5,6 +5,7 @@ type PolylineProps = {
   }>
   strokeColor?: string
   strokeWidth?: number
+  autoFocusOnLastPoint?: boolean
 }
 
 export default PolylineProps

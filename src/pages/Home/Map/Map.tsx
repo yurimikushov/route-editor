@@ -37,7 +37,12 @@ const Map: FC<MapProps> = ({ className }) => {
         />
       ))}
       {!isPointDragging && (
-        <Polyline points={mapPoints} strokeWidth={5} strokeColor='#1e98fe' />
+        <Polyline
+          points={mapPoints}
+          strokeWidth={5}
+          strokeColor='#1e98fe'
+          autoFocusOnLastPoint
+        />
       )}
     </NativeMap>
   )
