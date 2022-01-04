@@ -1,4 +1,8 @@
 const reorder = <T>(list: Array<T>, startIndex: number, endIndex: number) => {
+  if (startIndex === endIndex) {
+    return list
+  }
+
   if (
     startIndex < 0 ||
     startIndex >= list.length ||
