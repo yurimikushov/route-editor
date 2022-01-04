@@ -108,3 +108,16 @@ it('should focus input when clear btn is clicked', () => {
 
   expect(document.activeElement).toBe(screen.getByDisplayValue('qwerty'))
 })
+
+it('should focus input after rendering when auto focus prop is passed', () => {
+  render(
+    <TextInput
+      value='qwerty'
+      placeholder='Type here'
+      autoFocus
+      onChange={noop}
+    />
+  )
+
+  expect(document.activeElement).toBe(screen.getByDisplayValue('qwerty'))
+})
