@@ -3,12 +3,17 @@ import noop from 'lodash/noop'
 import { useRouteEditor } from 'services/routeEditor'
 import Route from './Route'
 
+jest.mock('services/routeEditor')
+
 // eslint-disable-next-line react/display-name
-jest.mock('./Point/Point', () => (props: { className?: string }) => (
+jest.mock('./Point', () => (props: { className?: string }) => (
   <div {...props}></div>
 ))
 
-jest.mock('services/routeEditor')
+// eslint-disable-next-line react/display-name
+jest.mock('./Placeholder', () => (props: { className?: string }) => (
+  <div {...props}>Placeholder</div>
+))
 
 const runMockUseRouteEditor = (result: ReturnType<typeof useRouteEditor>) => {
   // @ts-expect-error bad typing
