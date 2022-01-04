@@ -8,7 +8,6 @@ const suggestionsReducer = (state: SuggestionsState, action: Action) => {
       return {
         ...state,
         isLoading: true,
-        suggestions: [],
         error: null,
       }
     case LOAD_SUCCESS:

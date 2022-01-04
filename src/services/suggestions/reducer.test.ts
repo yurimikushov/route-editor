@@ -1,15 +1,37 @@
 import { loadBegin, loadSuccess, loadFail, clear } from './actions'
 import suggestionsReducer from './reducer'
 
-it('should enable loading flag and reset rest fields', () => {
+it('should enable loading flag and reset error', () => {
   expect(
     suggestionsReducer(
-      { isLoading: false, suggestions: [], error: new Error() },
+      {
+        isLoading: false,
+        suggestions: [
+          {
+            name: 'Balalayka',
+            description: 'Some description',
+            point: {
+              lat: 0,
+              lon: 0,
+            },
+          },
+        ],
+        error: new Error(),
+      },
       loadBegin()
     )
   ).toEqual({
     isLoading: true,
-    suggestions: [],
+    suggestions: [
+      {
+        name: 'Balalayka',
+        description: 'Some description',
+        point: {
+          lat: 0,
+          lon: 0,
+        },
+      },
+    ],
     error: null,
   })
 })
