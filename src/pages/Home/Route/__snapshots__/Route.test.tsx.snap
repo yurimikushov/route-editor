@@ -8,7 +8,7 @@ exports[`should render placeholder when route is empty 1`] = `
 
 exports[`should render points when route isn't empty 1`] = `
 <ul
-  className="my-2"
+  className="overflow-y-scroll pl-1 pr-1 -mr-2"
   data-rbd-droppable-context-id="0"
   data-rbd-droppable-id="draggable-list"
 >

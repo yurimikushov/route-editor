@@ -14,8 +14,8 @@ const Route: FC<RouteProps> = ({ className }) => {
     <>
       {!isEmpty(route) ? (
         <DraggableList
-          className={cn(className, 'my-2')}
-          draggableClassName='-m-1 rounded-lg border-4 border-dashed border-gray-200'
+          className={cn(className, 'overflow-y-scroll pl-1 pr-1 -mr-2')}
+          draggableClassName='-mx-1 rounded-lg border-4 border-dashed border-gray-200'
           list={route}
           renderItem={(address) => (
             <Point

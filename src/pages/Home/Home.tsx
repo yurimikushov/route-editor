@@ -7,12 +7,19 @@ import HomeProps from './Home.props'
 
 const Home: FC<HomeProps> = ({ className }) => {
   return (
-    <div className={cn(className, 'flex')}>
-      <div className='m-3 flex flex-col w-80'>
+    <div className={cn(className, 'relative')}>
+      <Map className='w-100% h-screen' />
+      <div
+        className={cn(
+          'fixed top-0 left-0',
+          'm-3 p-4 w-80 max-h-full',
+          'bg-white rounded-xl shadow-lg',
+          'border border-b-gray-50 border-opacity-50'
+        )}
+      >
         <SearchForm />
-        <Route />
+        <Route className='mt-2 max-h-[60vh]' />
       </div>
-      <Map className='w-[calc(100%-theme(space.80))] h-screen' />
     </div>
   )
 }
