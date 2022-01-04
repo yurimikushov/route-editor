@@ -3,6 +3,8 @@ import { IMapState, Map } from 'yandex-maps'
 import isNull from 'lodash/isNull'
 import fetchScript from 'lib/fetchScript'
 
+const MAP_URL = `${process.env.REACT_APP_MAP_API}/?apikey=${process.env.REACT_APP_MAP_API_KEY}`
+
 type Local = 'ru_RU' | 'en_US' | 'en_RU' | 'ru_UA' | 'uk_UA' | 'tr_TR'
 
 const useCreateMap = (
@@ -53,7 +55,7 @@ const useCreateMap = (
     }
 
     fetchScript(
-      `https://api-maps.yandex.ru/2.1/?lang=${local}&onload=${loadCallbackName}&onerror=${errorCallbackName}`
+      `${MAP_URL}&lang=${local}&onload=${loadCallbackName}&onerror=${errorCallbackName}`
     ).catch((error: Error) => {
       setIsCreating(false)
       setError(error)
