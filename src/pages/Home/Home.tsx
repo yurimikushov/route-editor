@@ -14,7 +14,7 @@ const Home: FC<HomeProps> = ({ className }) => {
           'p-4 min-h-[40vh]',
           'md:fixed md:top-0 md:left-0',
           'md:m-3 md:w-80 md:max-h-full',
-          'bg-white rounded-t-xl md:rounded-xl shadow-lg',
+          'bg-white md:rounded-xl shadow-lg',
           'border border-b-gray-50 border-opacity-50'
         )}
       >
