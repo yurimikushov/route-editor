@@ -8,7 +8,8 @@ import PlacemarkProps from './Placemark.props'
 const Placemark: FC<PlacemarkProps> = ({
   point,
   preset,
-  balloonContent,
+  balloonContentHeader,
+  balloonContentBody,
   draggable,
   onDragStart,
   onDragEnd,
@@ -54,8 +55,15 @@ const Placemark: FC<PlacemarkProps> = ({
       return
     }
 
-    placemarkRef.current.properties.set('balloonContent', balloonContent)
-  }, [balloonContent])
+    placemarkRef.current.properties.set(
+      'balloonContentHeader',
+      balloonContentHeader
+    )
+    placemarkRef.current.properties.set(
+      'balloonContentBody',
+      balloonContentBody
+    )
+  }, [balloonContentHeader, balloonContentBody])
 
   useLayoutEffect(() => {
     if (isNull(placemarkRef.current)) {

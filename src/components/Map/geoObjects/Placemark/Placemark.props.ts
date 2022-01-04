@@ -4,7 +4,8 @@ type PlacemarkProps = {
     lon: number
   }
   preset?: 'islands#blueCircleIcon'
-  balloonContent?: string
+  balloonContentHeader?: string
+  balloonContentBody?: string
   draggable?: boolean
   onDragStart?: () => void
   onDragEnd?: (point: { lat: number; lon: number }) => void

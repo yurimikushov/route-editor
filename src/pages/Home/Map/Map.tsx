@@ -30,7 +30,8 @@ const Map: FC<MapProps> = ({ className }) => {
           key={address.id}
           point={address.point}
           preset='islands#blueCircleIcon'
-          balloonContent={address.name}
+          balloonContentHeader={address.name}
+          balloonContentBody={address.description}
           draggable
           onDragStart={handleDragPointStart}
           onDragEnd={(point) => handleDragPointEnd(address.id, point)}
