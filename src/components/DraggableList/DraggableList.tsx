@@ -4,6 +4,7 @@ import {
   Draggable,
   DropResult,
 } from 'react-beautiful-dnd'
+import cn from 'classnames'
 import map from 'lodash/map'
 import isNil from 'lodash/isNil'
 import reorder from 'lib/reorder'
@@ -11,6 +12,7 @@ import DraggableListProps from './DraggableList.props'
 
 const DraggableList = <T,>({
   className,
+  draggableClassName,
   list,
   renderItem,
   onUpdate,
@@ -26,11 +28,13 @@ const DraggableList = <T,>({
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId='draggable-list'>
-        {(provided) => (
+        {(provided, snapshot) => (
           <ul
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className={className}
+            className={cn(className, {
+              [draggableClassName ?? '']: snapshot.isDraggingOver,
+            })}
           >
             {map(list, (item, index) => (
               <Draggable key={item.id} draggableId={item.id} index={index}>

@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 
 type DraggableListProps<T> = {
   className?: string
+  draggableClassName?: string
   list: Array<Item<T>>
   renderItem: (item: Item<T>) => ReactNode
   onUpdate: (list: Array<Item<T>>) => void
