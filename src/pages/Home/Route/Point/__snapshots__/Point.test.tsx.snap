@@ -19,6 +19,7 @@ exports[`should render point 1`] = `
     </span>
   </div>
   <button
+    className="w-5 h-5 min-w-5 min-h-5"
     onClick={[Function]}
   >
     Clear
@@ -45,6 +46,7 @@ exports[`should render point 2`] = `
     </span>
   </div>
   <button
+    className="w-5 h-5 min-w-5 min-h-5"
     onClick={[Function]}
   >
     Clear

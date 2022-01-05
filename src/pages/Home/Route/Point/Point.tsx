@@ -17,7 +17,7 @@ const Point: FC<PointProps> = ({ className, point, onDelete }) => {
         <span className='text-gray-600'>{point.name}</span>
         <span className='text-sm text-gray-400'>{point.description}</span>
       </div>
-      <ClearButton onClick={onDelete} />
+      <ClearButton className='w-5 h-5 min-w-5 min-h-5' onClick={onDelete} />
     </div>
   )
 }

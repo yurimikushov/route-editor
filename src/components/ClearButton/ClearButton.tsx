@@ -8,7 +8,6 @@ const ClearButton: FC<ClearButtonProps> = ({ className, onClick }) => {
     <button
       className={cn(
         className,
-        'w-5 h-5 min-w-5 min-h-5',
         'rounded-md text-gray-500 hover:text-black',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500'
       )}

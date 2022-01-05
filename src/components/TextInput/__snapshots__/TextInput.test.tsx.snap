@@ -24,6 +24,7 @@ exports[`should render text input with clear btn 1`] = `
     value="123"
   />
   <button
+    className="w-5 h-5 min-w-5 min-h-5"
     data-testid="clear-text-input"
     onClick={[Function]}
   >

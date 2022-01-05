@@ -63,7 +63,12 @@ const TextInput: ForwardRefRenderFunction<HTMLInputElement, TextInputProps> = (
         value={value}
         onChange={handleChange}
       />
-      {shouldDisplayClear && <ClearButton onClick={handleClear} />}
+      {shouldDisplayClear && (
+        <ClearButton
+          className='w-5 h-5 min-w-5 min-h-5'
+          onClick={handleClear}
+        />
+      )}
     </div>
   )
 }
