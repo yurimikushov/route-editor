@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render placeholder when route is empty 1`] = `
-<div>
-  Placeholder
-</div>
-`;
-
-exports[`should render points when route isn't empty 1`] = `
+exports[`should render draggable points when route contains more than 1 element 1`] = `
 <ul
   className="overflow-y-scroll pl-1 pr-1 -mr-2"
   data-rbd-droppable-context-id="0"
@@ -31,6 +25,7 @@ exports[`should render points when route isn't empty 1`] = `
     tabIndex={-1}
   >
     <div
+      isDraggable={true}
       onDelete={[Function]}
       point={
         Object {
@@ -64,6 +59,7 @@ exports[`should render points when route isn't empty 1`] = `
     tabIndex={-1}
   >
     <div
+      isDraggable={true}
       onDelete={[Function]}
       point={
         Object {
@@ -79,4 +75,87 @@ exports[`should render points when route isn't empty 1`] = `
     />
   </li>
 </ul>
+`;
+
+exports[`should render non-draggable point when route contains 1 element 1`] = `
+<ul
+  className="overflow-y-scroll pl-1 pr-1 -mr-2"
+  data-rbd-droppable-context-id="1"
+  data-rbd-droppable-id="draggable-list"
+>
+  <li
+    aria-describedby="rbd-hidden-text-1-hidden-text-4"
+    data-rbd-drag-handle-context-id="1"
+    data-rbd-drag-handle-draggable-id="1"
+    data-rbd-draggable-context-id="1"
+    data-rbd-draggable-id="1"
+    draggable={false}
+    onDragStart={[Function]}
+    onTransitionEnd={null}
+    role="button"
+    style={
+      Object {
+        "transform": null,
+        "transition": null,
+      }
+    }
+    tabIndex={-1}
+  >
+    <div
+      isDraggable={true}
+      onDelete={[Function]}
+      point={
+        Object {
+          "description": "Some description",
+          "id": "1",
+          "name": "Balalayka",
+          "point": Object {
+            "lat": 0,
+            "lon": 0,
+          },
+        }
+      }
+    />
+  </li>
+  <li
+    aria-describedby="rbd-hidden-text-1-hidden-text-4"
+    data-rbd-drag-handle-context-id="1"
+    data-rbd-drag-handle-draggable-id="2"
+    data-rbd-draggable-context-id="1"
+    data-rbd-draggable-id="2"
+    draggable={false}
+    onDragStart={[Function]}
+    onTransitionEnd={null}
+    role="button"
+    style={
+      Object {
+        "transform": null,
+        "transition": null,
+      }
+    }
+    tabIndex={-1}
+  >
+    <div
+      isDraggable={true}
+      onDelete={[Function]}
+      point={
+        Object {
+          "description": "Some description",
+          "id": "2",
+          "name": "Vodka",
+          "point": Object {
+            "lat": 1,
+            "lon": 1,
+          },
+        }
+      }
+    />
+  </li>
+</ul>
+`;
+
+exports[`should render placeholder when route is empty 1`] = `
+<div>
+  Placeholder
+</div>
 `;

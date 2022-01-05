@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render point 1`] = `
+exports[`should render draggable point when isDraggable prop is true 1`] = `
 <div
   className="my-3 px-3 py-2 flex justify-between items-center bg-gray-100 rounded"
 >
@@ -18,16 +18,25 @@ exports[`should render point 1`] = `
       Some description
     </span>
   </div>
-  <button
-    className="w-5 h-5 min-w-5 min-h-5"
-    onClick={[Function]}
+  <div
+    className="flex items-center gap-1"
   >
-    Clear
-  </button>
+    <div
+      className="w-6 h-6 min-w-6 min-h-6"
+    >
+      Dragger
+    </div>
+    <button
+      className="w-5 h-5 min-w-5 min-h-5"
+      onClick={[Function]}
+    >
+      Clear
+    </button>
+  </div>
 </div>
 `;
 
-exports[`should render point 2`] = `
+exports[`should render non-draggable point by default 1`] = `
 <div
   className="my-3 px-3 py-2 flex justify-between items-center bg-gray-100 rounded"
 >
@@ -45,11 +54,46 @@ exports[`should render point 2`] = `
       Some description
     </span>
   </div>
-  <button
-    className="w-5 h-5 min-w-5 min-h-5"
-    onClick={[Function]}
+  <div
+    className="flex items-center gap-1"
   >
-    Clear
-  </button>
+    <button
+      className="w-5 h-5 min-w-5 min-h-5"
+      onClick={[Function]}
+    >
+      Clear
+    </button>
+  </div>
+</div>
+`;
+
+exports[`should render non-draggable point when isDraggable prop is false 1`] = `
+<div
+  className="my-3 px-3 py-2 flex justify-between items-center bg-gray-100 rounded"
+>
+  <div
+    className="flex flex-col"
+  >
+    <span
+      className="text-gray-600"
+    >
+      Balalayka
+    </span>
+    <span
+      className="text-sm text-gray-400"
+    >
+      Some description
+    </span>
+  </div>
+  <div
+    className="flex items-center gap-1"
+  >
+    <button
+      className="w-5 h-5 min-w-5 min-h-5"
+      onClick={[Function]}
+    >
+      Clear
+    </button>
+  </div>
 </div>
 `;

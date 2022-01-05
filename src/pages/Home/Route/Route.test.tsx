@@ -20,7 +20,39 @@ const runMockUseRouteEditor = (result: ReturnType<typeof useRouteEditor>) => {
   useRouteEditor.mockImplementation(() => result)
 }
 
-it(`should render points when route isn't empty`, () => {
+it(`should render draggable points when route contains more than 1 element`, () => {
+  runMockUseRouteEditor({
+    route: [
+      {
+        id: '1',
+        name: 'Balalayka',
+        description: 'Some description',
+        point: {
+          lat: 0,
+          lon: 0,
+        },
+      },
+      {
+        id: '2',
+        name: 'Vodka',
+        description: 'Some description',
+        point: {
+          lat: 1,
+          lon: 1,
+        },
+      },
+    ],
+    addAddress: noop,
+    changeAddress: noop,
+    deleteAddress: noop,
+    updateRoute: noop,
+  })
+
+  const tree = renderer.create(<Route />).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it(`should render non-draggable point when route contains 1 element`, () => {
   runMockUseRouteEditor({
     route: [
       {

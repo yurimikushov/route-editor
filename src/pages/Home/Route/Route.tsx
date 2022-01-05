@@ -17,10 +17,11 @@ const Route: FC<RouteProps> = ({ className }) => {
           className={cn(className, 'overflow-y-scroll pl-1 pr-1 -mr-2')}
           draggableClassName='-mx-1 rounded-lg border-4 border-dashed border-gray-200'
           list={route}
-          renderItem={(address) => (
+          renderItem={(address, isDraggable) => (
             <Point
               key={address.id}
               point={address}
+              isDraggable={isDraggable}
               onDelete={() => deleteAddress(address.id)}
             />
           )}
