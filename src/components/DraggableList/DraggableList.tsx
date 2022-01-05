@@ -5,6 +5,7 @@ import {
   DropResult,
 } from 'react-beautiful-dnd'
 import cn from 'classnames'
+import size from 'lodash/size'
 import map from 'lodash/map'
 import isNil from 'lodash/isNil'
 import reorder from 'lib/reorder'
@@ -17,6 +18,8 @@ const DraggableList = <T,>({
   renderItem,
   onUpdate,
 }: DraggableListProps<T>) => {
+  const isDragDisabled = size(list) < 2
+
   const handleDragEnd = (result: DropResult) => {
     if (isNil(result.destination)) {
       return
@@ -37,7 +40,12 @@ const DraggableList = <T,>({
             })}
           >
             {map(list, (item, index) => (
-              <Draggable key={item.id} draggableId={item.id} index={index}>
+              <Draggable
+                key={item.id}
+                draggableId={item.id}
+                index={index}
+                isDragDisabled={isDragDisabled}
+              >
                 {(provided) => (
                   <li
                     ref={provided.innerRef}
@@ -45,7 +53,7 @@ const DraggableList = <T,>({
                     {...provided.dragHandleProps}
                     tabIndex={-1}
                   >
-                    {renderItem(item)}
+                    {renderItem(item, !isDragDisabled)}
                   </li>
                 )}
               </Draggable>

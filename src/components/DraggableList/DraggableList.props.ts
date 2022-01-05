@@ -4,7 +4,7 @@ type DraggableListProps<T> = {
   className?: string
   draggableClassName?: string
   list: Array<Item<T>>
-  renderItem: (item: Item<T>) => ReactNode
+  renderItem: (item: Item<T>, isDraggable: boolean) => ReactNode
   onUpdate: (list: Array<Item<T>>) => void
 }
 
