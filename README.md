@@ -2,6 +2,8 @@
 
 An implementation of [this task](https://dl.funbox.ru/qt-js.pdf).
 
+![Preview](docs/img/preview.png)
+
 ## Dev
 
 ### First of all
