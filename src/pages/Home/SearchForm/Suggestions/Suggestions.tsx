@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import cn from 'classnames'
 import map from 'lodash/map'
+import useSuggestions from './hooks/useSuggestions'
 import Suggestion from './Suggestion'
 import SuggestionsProps from './Suggestions.props'
-import useSuggestions from './hooks/useSuggestions'
 
 const Suggestions: FC<SuggestionsProps> = ({
   className,

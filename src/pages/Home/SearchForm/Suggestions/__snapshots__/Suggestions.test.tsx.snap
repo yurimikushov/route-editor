@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should highlight suggestion when useSuggestions return positive index 1`] = `
+<ul
+  className="some-class-name py-1 w-full max-h-[30vh] md:max-h-[50vh] overflow-y-scroll md:overflow-y-auto bg-white rounded-md border border-gray-200 shadow-lg"
+>
+  <li
+    data-testId="Balalyaka"
+    isHighlighted={false}
+    onMouseDown={[Function]}
+    suggestion={
+      Object {
+        "description": "Some description",
+        "name": "Balalyaka",
+        "point": Object {
+          "lat": 0,
+          "lon": 0,
+        },
+      }
+    }
+  >
+    Suggestion
+  </li>
+  <li
+    data-testId="Vodka"
+    isHighlighted={true}
+    onMouseDown={[Function]}
+    suggestion={
+      Object {
+        "description": "Some description",
+        "name": "Vodka",
+        "point": Object {
+          "lat": 1,
+          "lon": 2,
+        },
+      }
+    }
+  >
+    Suggestion
+  </li>
+  <li
+    data-testId="Pelmeny"
+    isHighlighted={false}
+    onMouseDown={[Function]}
+    suggestion={
+      Object {
+        "description": "Some description",
+        "name": "Pelmeny",
+        "point": Object {
+          "lat": 2,
+          "lon": 2,
+        },
+      }
+    }
+  >
+    Suggestion
+  </li>
+</ul>
+`;
+
+exports[`should render empty container when suggestions is empty 1`] = `
+<ul
+  className="some-class-name py-1 w-full max-h-[30vh] md:max-h-[50vh] overflow-y-scroll md:overflow-y-auto bg-white rounded-md border border-gray-200 shadow-lg"
+/>
+`;
+
+exports[`should render suggestions when suggestions isn't empty 1`] = `
+<ul
+  className="some-class-name py-1 w-full max-h-[30vh] md:max-h-[50vh] overflow-y-scroll md:overflow-y-auto bg-white rounded-md border border-gray-200 shadow-lg"
+>
+  <li
+    data-testId="Balalyaka"
+    isHighlighted={false}
+    onMouseDown={[Function]}
+    suggestion={
+      Object {
+        "description": "Some description",
+        "name": "Balalyaka",
+        "point": Object {
+          "lat": 0,
+          "lon": 0,
+        },
+      }
+    }
+  >
+    Suggestion
+  </li>
+</ul>
+`;
