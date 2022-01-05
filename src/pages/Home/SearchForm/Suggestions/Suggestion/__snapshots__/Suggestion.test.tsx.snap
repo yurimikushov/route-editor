@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render highlighted suggestion 1`] = `
+<li
+  className="some-class-name px-2 py-1 flex flex-col bg-gray-50 cursor-pointer hover:bg-gray-100"
+  onMouseDown={[Function]}
+>
+  <span
+    className="text-sm text-black"
+  >
+    Balalyaka
+  </span>
+  <span
+    className="text-xs text-gray-400"
+  >
+    Some description
+  </span>
+</li>
+`;
+
+exports[`should render non-highlighted suggestion 1`] = `
+<li
+  className="some-class-name px-2 py-1 flex flex-col bg-white cursor-pointer hover:bg-gray-100"
+  onMouseDown={[Function]}
+>
+  <span
+    className="text-sm text-black"
+  >
+    Balalyaka
+  </span>
+  <span
+    className="text-xs text-gray-400"
+  >
+    Some description
+  </span>
+</li>
+`;

@@ -6,13 +6,13 @@ const Suggestion: FC<SuggestionProps> = ({
   className,
   isHighlighted,
   suggestion,
-  onChoose,
+  testId,
+  onMouseDown,
 }) => {
-  const { name, description, point } = suggestion
+  const { name, description } = suggestion
 
   return (
     <li
-      key={`${point.lat}::${point.lon}`}
       className={cn(
         className,
         'px-2 py-1',
@@ -21,7 +21,8 @@ const Suggestion: FC<SuggestionProps> = ({
         'cursor-pointer',
         'hover:bg-gray-100'
       )}
-      onMouseDown={onChoose}
+      data-testid={testId}
+      onMouseDown={onMouseDown}
     >
       <span className='text-sm text-black'>{name}</span>
       <span className='text-xs text-gray-400'>{description}</span>

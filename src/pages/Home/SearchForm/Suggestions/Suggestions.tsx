@@ -28,7 +28,7 @@ const Suggestions: FC<SuggestionsProps> = ({
           key={`${suggestion.point.lat}::${suggestion.point.lon}`}
           isHighlighted={highlightedSuggestion === i}
           suggestion={suggestion}
-          onChoose={() => onChoose(suggestion)}
+          onMouseDown={() => onChoose(suggestion)}
         />
       ))}
     </ul>
