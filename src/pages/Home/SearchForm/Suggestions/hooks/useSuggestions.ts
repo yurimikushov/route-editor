@@ -49,6 +49,19 @@ const useSuggestions = (
     [highlightedSuggestion, suggestions]
   )
 
+  useKeyDown(
+    'Space',
+    (e: KeyboardEvent) => {
+      if (highlightedSuggestion === -1) {
+        return
+      }
+
+      e.preventDefault()
+      onChoose(suggestions[highlightedSuggestion])
+    },
+    [highlightedSuggestion, suggestions]
+  )
+
   return { highlightedSuggestion }
 }
 

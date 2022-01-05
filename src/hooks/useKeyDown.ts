@@ -1,13 +1,17 @@
 import { DependencyList, useEffect } from 'react'
 
-const useKeyDown = (code: string, cb: () => void, deps: DependencyList) => {
+const useKeyDown = (
+  code: string,
+  cb: (e: KeyboardEvent) => void,
+  deps: DependencyList
+) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code !== code) {
         return
       }
 
-      cb()
+      cb(e)
     }
 
     window.addEventListener('keydown', handleKeyDown)
